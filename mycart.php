@@ -11,7 +11,7 @@
 	<link rel="icon" href="image/icon.png">
 	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 	
-	
+	 
     <title>SegundaBooks</title>
 	<style>
 	<!--

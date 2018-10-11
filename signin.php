@@ -9,15 +9,18 @@
     <script src="bootstrap/js/jquery-3.3.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
 	<link rel="icon" href="image/icon.png">
-	
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 	
 	
     <title>SegundaBooks</title>
 	<style>
+	html,body{
+    overflow-x:hidden;
+
+    }
 		.nav{
 	background-color:#6697A7;
 	margin-bottom:100px;
-	position:relative;
 }
 .nav ul{
 	list-style:none;
@@ -75,12 +78,40 @@
     margin-right: auto;
 	margin-bottom:20px;
 }
-.container .form-dark{
-	background-color:lightgray;
+#icon-sign-up{
+	width:200px;
+	height:100px;
+	display: block;
+    margin-left: 	auto;
+    margin-right: auto;
 }
 #submit{
-	width:100%;
-	background-color:#ff751a;
+	display: block;
+	margin-top:10px;
+    margin-left: auto;
+    margin-right: auto;
+	margin-bottom:20px;
+	background-color:#6697A7;
+}
+form{
+	width:500px;
+	margin-top:10px;
+    margin-left: auto;
+    margin-right: auto;
+	margin-bottom:20px;
+}
+.message-login{
+	width:15%;
+	text-align:center;
+	margin-left:42%;
+	height:9%;
+	border-radius:20px;
+}
+.message-login p{
+	line-height:40px;
+	font-weight:bold;
+	font-family:Bookman Old Style;
+	color:red;
 }
 	</style>
 </head>
@@ -88,76 +119,44 @@
 	<div class="top">
 	<a href="index.php"><img src="image/icon.png" class="img-responsive" id="icon"></a>
 	<a href="signin.php"><input type="button" value="sign-in" class="button" id="sign-in"></a>
-	<a href="signup.php	"><input type="button" value="sign-up" class="button"></a>
-	
+	<a href="signup.php"><input type="button" value="sign-up" class="button"></a>
+		
 </div>
-<div class="container-fluid">
+
 <div class="nav">
 	<ul>
-		<li><a href="#">Books </a></li>
+		<li><a href="index.php">Books </a></li>
 		<li class="nav-divider">|</li>
 		<li><a href="browsecollection.php">Browse Collection</a></li>
 		<li class="nav-divider">|</li>
 		<li><a href="#">Rare Books</a></li>
 		<li class="nav-divider">|</li>
 		<li><a href="#">School Books</a></li>
-		<li><a href="mycart.php" class="cart">My Cart</a></li>
 		<li class="nav-divider">|</li>
-		<li><a href="#" class="selling">Start Selling</a></li>
+		<li><a href="startselling.php" class="selling">Start Selling</a></li>
 	</ul>
-</div>
 </div>
 
 <div class="container">
-<form>
-<div>
- <input type="file" name="file" >
+<div class="icon-sign-up">
+	<img src="image/icon.png" class="img-fluid" alt="Responsive image" id="icon-sign-up"/>
+	<h6 class="display-5" align="center">Sign-In</h6>
 </div>
-
-<div class="form-group">
- <label>Item Details</label>
-</div>
-
-
-<div class="form-group">
-<label>What are you selling?</label>
-<input type="text" class="form-control" id="Name" placeholder="Title">
-</div>
-<div class="form-group">
-<label>Category</label>
-<input type="email" class="form-control" id="Email1" placeholder="Choose Category">
-</div>
-<div class="form-group">
-<label>Description</label>
-<textarea class="form-control" maxlength="255"></textarea>
-</div>
-<div class="form-group">
-<label>What are you selling?</label>
-<input type="text" class="form-control" id="Name" placeholder="Choose Location">
-</div>
-
-</form>
-</div>
-
-
-	<div class="container">
-		<form class="form-dark">
+		<form class="mx-auto" method="post" action="processsignin.php">
 		<div class="form-group">
-			<p>Seller Details</p>
-			<p><b>Mobile Number</b></p>
-			<input type="text" name="number" class="form-control" value="+63 923 8123 756" readonly>
+			<p><b>Username</b></p>
+			<input type="text" class="form-control" name="username" placeholder="Username">
 		</div>
 		<div class="form-group">
-			<label>Name</label>
-				<input type="text" class="form-control" id="Name" value="Dela Cruz Juan" readonly>
+			<label><b>Password</b></label>
+				<input type="password" class="form-control" id="password" name="password" placeholder="Minimum 8 Characters">
 		</div>
-		<div class="form-group">
-			<label>Email</label>
-				<input type="text" class="form-control" id="Name" value="JuanDelacruz@yahoo.com" readonly>
-		</div>
+			<input type="submit" class="btn btn-info" id="submit" value="login">
 		</form>
-		<button type="submit" class="btn btn-info" id="submit">Sell Your Item Now</button>
 	</div>
+		<div class="message-login">
+			<p>Invalid login!</p>
+		</div>
 
 </body>
 </html>

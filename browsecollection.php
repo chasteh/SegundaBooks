@@ -6,172 +6,63 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="bootsrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
     <script src="bootstrap/js/jquery-3.3.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> </script>
 	<link rel="icon" href="image/icon.png">
-	
-	
     <title>SegundaBooks</title>
-	<style>
-		.nav{
-	background-color:#6697A7;
-}
-.nav ul{
-	list-style:none;
-	height:30px;
-}
-.nav ul li{
-	float:left;
-	padding:5px;
-	line-height:auto;
-	position:relative;
-	top:10px;
-}
-.nav ul li a{
-	color:white;
-	text-decoration:none; 
-}
-.nav-divider{
-	color:white;
-}
-.cart{
-	margin-left:600px;
-}
-#icon{
-	width:200px;
-	height:50px;
-}
-.button{
-	float:right;
-	position:relative;
-	top:10px;
-	right:45px;
-	background-color:transparent;
-	border-radius:6px;
-	border:1px solid black;
-}
-#sign-in{
-	margin-left:15px;
-}
-.divider
-{
-	border-bottom: 3px solid lightgray;
-	width:100%	;
-	display: block;
-	margin-top:10px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.divider2
-{
-	border-bottom: 3px solid lightgray;
-	width:67%	;
-	display: block;
-	margin-top:10px;
-    margin-left: auto;
-    margin-right: auto;
-	margin-bottom:20px;
-}
-.search{
-	margin-left:30%;
-	margin-top:10px;
-}
-select{
-	border-radius:6px;
-	width:120px;
-	align-text:center;
-}
-.searchbox{
-	border-radius:6px;
-	width:400px;
-	margin-right:5px;
-}
-.find{
-	background-color:#6697A7;
-	border:1px solid black;
-	border-radius:6px;
-	width:100px;
-	height:35px;
-}
-.find:hover{
-	background-color:#76a2b0;
-}
-.title p{
-	text-align:center;
-	font-size:24px;
-	font-weight:bold;
-	color:#76a2b0;
-	font-family:margarine;
-}
-.image1{
-	width:130px;
-	height:180px;
-	border:1px solid black;
-}
-.title-book-1{
-	width:130px;
-	height:150px;
-}
-codingtutorial{
-	color:#76a2b0;
-	font-size:14px;
-	border:1px solid black;
-}
-.price{
-	color:#76a2b0;
-	font-size:14px;
-}
-#books{
-	border:1px solid black;
-	width:165px;
-}
-.image1.0{
-	height:10px;
-}
-tr th img{
-	width:150px;
-	height:200px;
-}
-tr td{
-	font-weight:bold;
-}
-#images{
-	margin-left:100px;
-}
-table{
-	margin-left:200px;
-}
-.table-title{
-	color:#375660;
-	height:10px;
-}
-.information{
-	color:#375660;
-	font-size:12px;
-}
-.price{
-	color:#375660;
-}
-	</style>
 </head>
 <body>
+<?php 
+	
+
+	session_start();
+	if (!empty($_SESSION["authenticated"]) && $_SESSION["authenticated"] === TRUE) {
+		$user = $_SESSION["user"];
+	}
+?>
+
 <div class="top">
-	<a href="index.php"><img src="image/icon.png" class="img-responsive" id="icon"></a>
-	<a href="#"><input type="button" value="sign-in" class="button" id="sign-in"></a>
-	<a href="signup.php"><input type="button" value="sign-up" class="button"></a>
+
+	<img src="image/icon.png" class="img-responsive" id="icon">
+	
+
+	
+ 	<div class="container" id="profile">
+	 	<div class="row">
+		 <div class="col-lg-12 col-md-3 col-sm-3 col-xs-3">
+
+		 <?php 
+		 	if (!empty($_SESSION["authenticated"]) && $_SESSION["authenticated"] === TRUE) {
+				echo " <p class=\"name\">" . $user . "</p>
+				<a href='logout.php' id='logout'>Logout</a>
+		 		<a href=\"#\"><img src=\"image/profile.png\" class=\"img-thumbnail\" id=\"profile-picture\"/></a>";
+			}
+			else {
+				echo "<a href='signin.php'><input type='button' value='sign-in' class='button' id='sign-in'></a>
+				<a href='signup.php'><input type='button' value='sign-up' class='button'></a>";	
+			}
+		 ?>
+		 </div>
+		 	
+			 </div>
+		 </div>
+	</div>
+	
 </div>
 <div class="nav">
-	<ul>
-		<li><a href="index.php">Books </a></li>
+	<ul>	
+		<li><a href="index.php">Home</a></li>
 		<li class="nav-divider">|</li>
 		<li><a href="browsecollection.php">Browse Collection</a></li>
 		<li class="nav-divider">|</li>
 		<li><a href="#">Rare Books</a></li>
 		<li class="nav-divider">|</li>
 		<li><a href="#">School Books</a></li>
-		<li><a href="mycart.php" class="cart">My Cart</a></li>
 		<li class="nav-divider">|</li>
-		<li><a href="startselling.php" class="selling">Start Selling</a></li>
+		<li><a href="startselling.php">Start Selling</a></li>
+		
 	</ul>
 </div>
 <div class="search">

@@ -105,8 +105,8 @@ form{
 <body>
 	<div class="top">
 	<a href="index.php"><img src="image/icon.png" class="img-responsive" id="icon"></a>
-	<a href="#"><input type="button" value="sign-in" class="button" id="sign-in"></a>
-	<a href="#"><input type="button" value="sign-up" class="button"></a>
+	<a href="signin.php"><input type="button" value="sign-in" class="button" id="sign-in"></a>
+	<a href="signup.php"><input type="button" value="sign-up" class="button"></a>
 		
 </div>
 
@@ -119,7 +119,6 @@ form{
 		<li><a href="#">Rare Books</a></li>
 		<li class="nav-divider">|</li>
 		<li><a href="#">School Books</a></li>
-		<li><a href="mycart.php" class="cart">My Cart</a></li>
 		<li class="nav-divider">|</li>
 		<li><a href="startselling.php" class="selling">Start Selling</a></li>
 	</ul>
@@ -130,28 +129,32 @@ form{
 	<img src="image/icon.png" class="img-fluid" alt="Responsive image" id="icon-sign-up"/>
 	<h6 class="display-5" align="center">Register</h6>
 </div>
-		<form class="mx-auto">
+		<form class="mx-auto" action="processregistration.php" method="post">
 		<div class="form-group">
 			<p></p>
 			<p><b>Name</b></p>
-			<input type="text" name="name" class="form-control" placeholder="This will be your seller name on OLX">
+			<input type="text" class="form-control" name="fullname" placeholder="This will be your seller name on OLX">
 		</div>
 		<div class="form-group">
 			<label>Mobile Number</label>
-				<input type="text" class="form-control" id="number" placeholder="Must be a working PH number" >
+				<input type="text" class="form-control" id="number" name="mobile-number" placeholder="Must be a working PH number" >
 		</div>
+		<div class="form-group">
+			<p>Location</p>
+			<input type="text" class="form-control" name="location" placeholder="Location">
+		</div>
+		<div class="form-group">
+			<label>Username</label>
+				<input type="text" class="form-control" id="number" name="username" placeholder="Username" >
+		</div>
+
 		<div class="form-group">
 			<label>Password</label>
-				<input type="password" class="form-control" id="password" placeholder="Minimum 8 Characters">
+				<input type="password" class="form-control" id="password" name="password" placeholder="Minimum 8 Characters">
 		</div>
 		
-		<div class="form-group">
-			<label>Repeat Password</label>
-				<input type="password" class="form-control" id="password2" placeholder="Repeat to confirm">
-		</div>
+		<input type="submit" class="btn btn-info"  id="submit" value="Signup"/>
 		</form>
-		<button type="submit" class="btn btn-info" id="submit">Sell Your Item Now</button>
 	</div>
-
 </body>
 </html>
