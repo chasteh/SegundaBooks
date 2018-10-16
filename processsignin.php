@@ -20,16 +20,16 @@ $result = mysqli_stmt_get_result($stmt);
 
 $row = mysqli_fetch_assoc($result);
 
-
-// echo $row["name"] . "<br>";
-if ($row !== NULL) {
+if ($row !== null) {
     session_start();
     header('location:index.php');
     $_SESSION["user"] = $row["name"];
-    $_SESSION["authenticated"] = TRUE;
+    $_SESSION["authenticated"] = true;
 }
-else{
-    $_SESSION["login_error"] = 'Invalid Login';
+else {
+    session_start();
+    $_SESSION["login_error"] = "Invalid Username or Password";
+    header('location:signin.php');
 }
 
 

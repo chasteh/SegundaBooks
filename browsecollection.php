@@ -14,56 +14,17 @@
     <title>SegundaBooks</title>
 </head>
 <body>
-<?php 
-	
-
+<?php
 	session_start();
 	if (!empty($_SESSION["authenticated"]) && $_SESSION["authenticated"] === TRUE) {
 		$user = $_SESSION["user"];
 	}
 ?>
-
-<div class="top">
-
-	<img src="image/icon.png" class="img-responsive" id="icon">
-	
-
-	
- 	<div class="container" id="profile">
-	 	<div class="row">
-		 <div class="col-lg-12 col-md-3 col-sm-3 col-xs-3">
-
-		 <?php 
-		 	if (!empty($_SESSION["authenticated"]) && $_SESSION["authenticated"] === TRUE) {
-				echo " <p class=\"name\">" . $user . "</p>
-				<a href='logout.php' id='logout'>Logout</a>
-		 		<a href=\"#\"><img src=\"image/profile.png\" class=\"img-thumbnail\" id=\"profile-picture\"/></a>";
-			}
-			else {
-				echo "<a href='signin.php'><input type='button' value='sign-in' class='button' id='sign-in'></a>
-				<a href='signup.php'><input type='button' value='sign-up' class='button'></a>";	
-			}
-		 ?>
-		 </div>
-		 	
-			 </div>
-		 </div>
-	</div>
-	
+<div class="container-fluid">
+<?php include 'login_info.php' ?>
 </div>
-<div class="nav">
-	<ul>	
-		<li><a href="index.php">Home</a></li>
-		<li class="nav-divider">|</li>
-		<li><a href="browsecollection.php">Browse Collection</a></li>
-		<li class="nav-divider">|</li>
-		<li><a href="#">Rare Books</a></li>
-		<li class="nav-divider">|</li>
-		<li><a href="#">School Books</a></li>
-		<li class="nav-divider">|</li>
-		<li><a href="startselling.php">Start Selling</a></li>
-		
-	</ul>
+<div class="container-fluid">
+<?php include 'nav_bar.php' ?>
 </div>
 <div class="search">
 	<b>Search</b>

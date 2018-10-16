@@ -1,3 +1,5 @@
+/* Books in index.php*/
+
 #second{
 }
 #third{
@@ -93,7 +95,6 @@
     margin-right: auto;
 	margin-bottom:10px;
 }
-
 #fiction:hover{
 	background-color:#6697A7;
 }
@@ -115,8 +116,6 @@
 #semi-background:hover{
 	background-color:#6697A7;
 }
-
-
 
 .divider
 {
@@ -358,4 +357,39 @@ table{
 }
 .button{
     margin-bottom: 10px;
+}
+#icon-sign-up{
+	width:200px;
+	height:100px;
+	display: block;
+    margin-left: 	auto;
+    margin-right: auto;
+}
+#submit{
+	display: block;
+	margin-top:10px;
+    margin-left: auto;
+    margin-right: auto;
+	margin-bottom:20px;
+	background-color:#6697A7;
+}
+form{
+	width:500px;
+	margin-top:10px;
+    margin-left: auto;
+    margin-right: auto;
+	margin-bottom:20px;
+}
+.message-login{
+	width:15%;
+	text-align:center;
+	margin-left:42%;
+	height:9%;
+	border-radius:20px;
+}
+.message-login p{
+	line-height:40px;
+	font-weight:bold;
+	font-family:Bookman Old Style;
+	color:red;
 }
