@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" style="background-color:white;">
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <!-- Meta, title, CSS, favicons, etc. -->
@@ -9,7 +10,7 @@
   <link rel="icon" href="images/favicon.ico" type="image/ico" />
   <link rel="icon" href="image/icon.png">
 
-  <?php require_once 'stylesheets.php' ?>
+  <?php require_once 'stylesheets.php'?>
 
   <title>SegundaBooks</title>
 </head>
@@ -39,11 +40,11 @@
           <br />
 
           <!-- sidebar menu -->
-          <?php require_once 'sidebar.php' ?>
+          <?php require_once 'sidebar.php'?>
         </div>
       </div>
 
-      <!-- top navigation -->   
+      <!-- top navigation -->
       <div class="top_nav">
         <div class="nav_menu" style="background-color:#6697A7">
           <nav>
@@ -139,23 +140,26 @@
       <div class="right_col" role="main">
         <!-- top tiles -->
         <div class="row tile_count">
-          
         </div>
         <!-- /top tiles -->
-
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="dashboard_graph">
-              <div class="row x_title">
+            <div class="dashboard_graph" style="height: 500px;">
+              <div class="row x_title" style="border-bottom:none;">
                 <!-- <div class="col-md-6"> -->
-                  <h3 style="color:black;">Add New Book Category</h3>
+                <h3 style="color:black;">Add New Book Category</h3>
+                <form action="submit_category.php" method="POST">
                   <div>
-                  <div style="border:1px solid lightgray;margin-top:2%;margin-bottom:3%;"></div>
-                    <span style="color:black;margin-right:10px;margin-top:10px;margin-left:3%;">Category Name:</span><input type="search" name="search" style="border:1px solid black;border-radius:5px;width:20%;">
+                    <div style="border:1px solid lightgray;margin-top:2%;margin-bottom:3%;"></div>
+                    <span style="color:black;margin-right:10px;margin-top:10px;margin-left:3%;">Category Name:</span>
+                    <input type="text" name="categoryname" style="border:1px solid black;border-radius:5px;width:20%;margin-bottom:5%;">
                   </div>
                   <div>
-                    <input type="button" name="savechanges" value="Save Changes" style="background-color:transparent;"> <input type="button" name="cancel" value="Cancel" style="background-color:transparent;">
+                    <input type="submit" name="savechanges" value="Save Changes" style="background-color:#6697A7;color:white;border:none;border-radius:8px;height:30px;width:110px;margin-left:10%;">
+                    <input type="button" name="cancel" value="Cancel" style="background-color:transparent;color:black;border:1px solid black;border-radius:8px;height:30px;width:110px;">
                   </div>
-                  <?php require_once 'js_scripts.php'; ?>
+                </form>
+                <?php require_once 'js_scripts.php';?>
 </body>
+
 </html>

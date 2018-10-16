@@ -12,6 +12,11 @@
   <?php require_once 'stylesheets.php' ?>
 
   <title>SegundaBooks</title>
+  <style>
+    table tr td a:hover{
+	color:#264c51;
+}
+  </style>
 </head>
 
 <body class="nav-md">
@@ -149,7 +154,7 @@
               <div class="row x_title">
                 <!-- <div class="col-md-6"> -->
                   <h3 style="color:black;">Book Category</h3>
-                  <input type="button" value="Add Category" style="background-color:#6697A7;border-radius:7px;color:white;border:0;width:13%;height:40px;margin-bottom:30px;margin-top:30px;margin-left:30px;">
+                  <a href="addcategory.php"><input type="button" value="Add Category" style="background-color:#6697A7;border-radius:7px;color:white;border:0;width:13%;height:40px;margin-bottom:30px;margin-top:30px;margin-left:30px;"/>
                   <table class="table table-striped" id="categoryTable">
                     <thead>
                       <tr>
@@ -158,26 +163,18 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>Fiction</td>
-                        <td>5</td>
-                      </tr>
-                      <tr>
-                        <td>Non-Fiction</td>
-                        <td>6</td>
-                      </tr>
-                      <tr>
-                        <td>Romantic</td>
-                        <td>10</td>
-                      </tr>
-                      <tr>
-                        <td>Mystery</td>
-                        <td>6</td>
-                      </tr>
-                      <tr>
-                        <td>Horror</td>
-                        <td>12</td>
-                      </tr>
+                       <?php
+                          require_once 'db_categories.php';
+
+                          $categories = get_categories();
+
+                          while ($row = $categories->fetch_assoc()) {
+                              echo "<tr>";
+                              echo  "<td>" . $row["category_name"] . "</td>";
+                              echo  "<td>" . $row["count_of_books"] . "</td>";
+                              echo "</tr>";
+                          }
+                       ?>
                     </tbody>
                   </table>
 

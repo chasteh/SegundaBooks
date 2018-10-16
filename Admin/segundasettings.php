@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" style="background-color:white;">
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <!-- Meta, title, CSS, favicons, etc. -->
@@ -9,7 +10,7 @@
   <link rel="icon" href="images/favicon.ico" type="image/ico" />
   <link rel="icon" href="image/icon.png">
 
-  <?php require_once 'stylesheets.php' ?>
+  <?php require_once 'stylesheets.php'?>
 
   <title>SegundaBooks</title>
 </head>
@@ -39,11 +40,11 @@
           <br />
 
           <!-- sidebar menu -->
-          <?php require_once 'sidebar.php' ?>
+          <?php require_once 'sidebar.php'?>
         </div>
       </div>
 
-      <!-- top navigation -->   
+      <!-- top navigation -->
       <div class="top_nav">
         <div class="nav_menu" style="background-color:#6697A7">
           <nav>
@@ -139,54 +140,25 @@
       <div class="right_col" role="main">
         <!-- top tiles -->
         <div class="row tile_count">
-          
         </div>
         <!-- /top tiles -->
-
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="dashboard_graph">
-              <div class="row x_title">
+            <div class="dashboard_graph" style="height: 500px;">
+              <div class="row x_title" style="border-bottom:none;">
                 <!-- <div class="col-md-6"> -->
-                  <h3>Users</h3>
-                  <a href="adduser.php"><input type="button" value="Add User" style="background-color:#6697A7;border-radius:7px;color:white;border:0;width:13%;height:40px;margin-bottom:30px;margin-top:30px;margin-left:30px;"></a>
-                  <table class="table table-striped" id="usersTable">
-                    <thead>
-                      <tr>
-                        <th>Username</th>
-                        <th>Name</th>
-                        <th>Contact Number</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php 
-                          require_once 'db_users.php';
-                          $users = get_users();
-                          while ($row = $users->fetch_assoc()) { ?>
-                              <tr>
-                                  <td>  </td>
-                            echo "<tr>";
-                            echo  "<td>" . "<a href='edituser.php'>" . $row["user_name"] ."</a>". "</td>";
-                            echo  "<td>" . $row["name"]   . "</td>";
-                            echo  "<td>" . $row["contact_number"] . "</td>";
-                            echo "</tr>";
-                        }
-                      ?>                      
-                    </tbody>
-                  </table>
-
-                <!-- </div> -->
-
-
-                <!-- footer content -->
-                </div>      
-           </div>                                                                                      
-          </div>        
-              <?php require_once 'js_scripts.php'; ?>
-              <script>
-                $(document).ready(function () {
-                  $('#usersTable').DataTable();
-                });
-              </script>
+                <h3 style="color:black;">SegundaBooks Settings</h3>
+                <form action="submit_category.php" method="POST">
+                    
+                    <div style="border:1px solid lightgray;margin-top:2%;margin-bottom:3%;"></div>
+                    <p style="margin-left:80px;color:black;">Carousel Picture</p>
+                    <span style="color:black;float:left;margin-left:120px;">Picture1:</span>
+                    <input type="text" name="name" style="float:left;border-radius:9px;border:1px solid gray;">
+                    <input type="file" name="name " style="float:left;width:11px;">
+                    <br/>
+                    </div>
+                </form>
+                <?php require_once 'js_scripts.php';?>
 </body>
+
 </html>
