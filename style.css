@@ -117,8 +117,7 @@
 	background-color:#6697A7;
 }
 
-.divider
-{
+.divider{
 	border-bottom: 3px solid lightgray;
 	width:1000px;
 	display: block;
@@ -149,9 +148,7 @@
 .nav-divider{
 	color:white;
 }
-.cart{
-	margin-left:600px;
-}
+
 #icon{
 	width:200px;
 	height:50px;
@@ -206,33 +203,9 @@ footer{
     padding-top:10px;
     padding-bottom:12px;
 }
-.nav{
-	background-color:#6697A7;
-}
-.nav ul{
-	list-style:none;
-	height:30px;
-}
-.nav ul li{
-	float:left;
-	padding:5px;
-	line-height:auto;
-	position:relative;
-	top:10px;
-}
-.nav ul li a{
-	color:white;
-	text-decoration:none; 
-}
-.nav-divider{
-	color:white;
-}
+
 .cart{
 	margin-left:600px;
-}
-#icon{
-	width:200px;
-	height:50px;
 }
 .button{
 	float:right;
@@ -246,17 +219,7 @@ footer{
 #sign-in{
 	margin-left:15px;
 }
-.divider
-{
-	border-bottom: 3px solid lightgray;
-	width:100%	;
-	display: block;
-	margin-top:10px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.divider2
-{
+.divider2{
 	border-bottom: 3px solid lightgray;
 	width:67%	;
 	display: block;
@@ -272,7 +235,7 @@ footer{
 select{
 	border-radius:6px;
 	width:120px;
-	align-text:center;
+	text-align:center;
 }
 .searchbox{
 	border-radius:6px;
@@ -339,11 +302,6 @@ table{
 }
 .price{
 	color:#375660;
-}
-.top{
-    margin-top:1px;
-    margin-bottom:1px;
-    height:10%;
 }
 #logout{
     float:right;

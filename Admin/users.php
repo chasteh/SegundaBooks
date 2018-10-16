@@ -148,35 +148,46 @@
             <div class="dashboard_graph">
               <div class="row x_title">
                 <!-- <div class="col-md-6"> -->
-                  <h3 style="color:black;">Book Category</h3>
-                  <input type="button" value="Add Category" style="background-color:#6697A7;border-radius:7px;color:white;border:0;width:13%;height:40px;margin-bottom:30px;margin-top:30px;margin-left:30px;">
-                  <table class="table table-striped" id="categoryTable">
+                  <h3>Users</h3>
+                  <input type="button" value="Add User" style="background-color:#6697A7;border-radius:7px;color:white;border:0;width:13%;height:40px;margin-bottom:30px;margin-top:30px;margin-left:30px;">
+                  <table class="table table-striped" id="usersTable">
                     <thead>
                       <tr>
+                        <th>Username</th>
                         <th>Name</th>
-                        <th>Number of book</th>
+                        <th>Phone Number</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Fiction</td>
-                        <td>5</td>
+                        <td>chastyy@segundabooks.com</td>
+                        <td>Chastelaine Salazar</td>
+                        <td>09263366535</td>
                       </tr>
                       <tr>
-                        <td>Non-Fiction</td>
-                        <td>6</td>
+                        <td>pierce@segundabooks.com</td>
+                        <td>Pierce Stevens</td>
+                        <td>09154526535</td>
                       </tr>
                       <tr>
-                        <td>Romantic</td>
-                        <td>10</td>
+                        <td>joseph@segundabooks.com</td>
+                        <td>Joseph Manuel</td>
+                        <td>09256451235</td>
                       </tr>
                       <tr>
-                        <td>Mystery</td>
-                        <td>6</td>
+                        <td>ryan@segundabooks.com</td>
+                        <td>Ryan Ramiso</td>
+                        <td>471-21-56</td>
                       </tr>
                       <tr>
-                        <td>Horror</td>
-                        <td>12</td>
+                        <td>jam@segundabooks.com</td>
+                        <td>Jamin Erolin</td>
+                        <td>0954562136</td>
+                      </tr>
+                      <tr>
+                        <td>lance@segundabooks.com</td>
+                        <td>Lance Aurora</td>
+                        <td>471-89-98</td>
                       </tr>
                     </tbody>
                   </table>
@@ -191,7 +202,7 @@
               <?php require_once 'js_scripts.php'; ?>
               <script>
                 $(document).ready(function () {
-                  $('#categoryTable').DataTable();
+                  $('#usersTable').DataTable();
                 });
               </script>
 </body>

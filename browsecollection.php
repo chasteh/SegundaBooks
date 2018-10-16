@@ -42,7 +42,7 @@
 <div class="title">
 	<p>Best Selling Books</p>
 </div>
-<div class="divider2"></div>
+<div class="divider"></div>
 
 <table>
 	<div class="table-responsive-sm">

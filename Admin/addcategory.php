@@ -148,51 +148,14 @@
             <div class="dashboard_graph">
               <div class="row x_title">
                 <!-- <div class="col-md-6"> -->
-                  <h3 style="color:black;">Book Category</h3>
-                  <input type="button" value="Add Category" style="background-color:#6697A7;border-radius:7px;color:white;border:0;width:13%;height:40px;margin-bottom:30px;margin-top:30px;margin-left:30px;">
-                  <table class="table table-striped" id="categoryTable">
-                    <thead>
-                      <tr>
-                        <th>Name</th>
-                        <th>Number of book</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Fiction</td>
-                        <td>5</td>
-                      </tr>
-                      <tr>
-                        <td>Non-Fiction</td>
-                        <td>6</td>
-                      </tr>
-                      <tr>
-                        <td>Romantic</td>
-                        <td>10</td>
-                      </tr>
-                      <tr>
-                        <td>Mystery</td>
-                        <td>6</td>
-                      </tr>
-                      <tr>
-                        <td>Horror</td>
-                        <td>12</td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                <!-- </div> -->
-
-
-                <!-- footer content -->
-                </div>      
-           </div>                                                                                      
-          </div>        
-              <?php require_once 'js_scripts.php'; ?>
-              <script>
-                $(document).ready(function () {
-                  $('#categoryTable').DataTable();
-                });
-              </script>
+                  <h3 style="color:black;">Add New Book Category</h3>
+                  <div>
+                  <div style="border:1px solid lightgray;margin-top:2%;margin-bottom:3%;"></div>
+                    <span style="color:black;margin-right:10px;margin-top:10px;margin-left:3%;">Category Name:</span><input type="search" name="search" style="border:1px solid black;border-radius:5px;width:20%;">
+                  </div>
+                  <div>
+                    <input type="button" name="savechanges" value="Save Changes" style="background-color:transparent;"> <input type="button" name="cancel" value="Cancel" style="background-color:transparent;">
+                  </div>
+                  <?php require_once 'js_scripts.php'; ?>
 </body>
 </html>
