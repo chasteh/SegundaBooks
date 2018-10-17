@@ -148,20 +148,26 @@
               <div class="row x_title" style="border-bottom:none;">
                 <!-- <div class="col-md-6"> -->
                 <h3 style="color:black;">Edit User</h3>
-                <form action="submit_category.php" method="POST">
+                <form action="submit_edit_user.php" method="POST">
+                <?php 
+                require_once 'db_users.php';
+                if(isset($_GET["id"]) && array_key_exists("id", $_GET)){
+                      $user = get_user($_GET["id"]);
+                } 
+                ?>
                     <div style="border:1px sol'id lightgray;margin-top:2%;margin-bottom:3%;"></div>
-                    <input type="hidden" name="userid">
+                    <input type="hidden" name="userid" value='<?php echo $user["user_id"]; ?>'>
                     <span style="color:black;margin-right:10px;margin-top:10px;margin-left:10%;">Name:</span>
-                    <input type="text" name="name" style="border:1px solid black;border-radius:5px;width:20%;margin-bottom:5%;">
+                    <input type="text" name="name" value='<?php echo $user["full_name"]; ?>' style="border:1px solid black;border-radius:5px;width:20%;margin-bottom:5%;">
                     <div></div>
                     <span style="color:black;margin-right:10px;margin-top:10px;margin-left:8%;">Username:</span>
-                    <input type="text" name="username" style="border:1px solid black;border-radius:5px;width:20%;margin-bottom:5%;">
+                    <input type="text" name="username" value='<?php echo $user["user_name"]; ?>' style="border:1px solid black;border-radius:5px;width:20%;margin-bottom:5%;">
                     <div></div>
                     <span style="color:black;margin-right:10px;margin-top:10px;margin-left:8%;">Password:</span>
-                    <input type="password" name="password" style="border:1px solid black;border-radius:5px;width:20%;margin-bottom:5%;">
+                    <input type="password" name="password" value='<?php echo $user["password"]; ?>' style="border:1px solid black;border-radius:5px;width:20%;margin-bottom:5%;">
                     <div></div>
                     <span style="color:black;margin-right:10px;margin-top:10px;margin-left:4%;">Contact Number:</span>
-                    <input type="text" name="categoryname" style="border:1px solid black;border-radius:5px;width:20%;margin-bottom:5%;">
+                    <input type="text" name="contactnumber" value='<?php echo $user["contact_number"]; ?>' style="border:1px solid black;border-radius:5px;width:20%;margin-bottom:5%;">
                     <div></div>
                   </div>
                   <div>

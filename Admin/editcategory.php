@@ -13,7 +13,7 @@
 
   <title>SegundaBooks</title>
 </head>
-
+<?php session_start(); ?>
 <body class="nav-md">
   <div class="container body">
     <div class="main_container" style="background-color:#6697A7;">
@@ -151,11 +151,22 @@
                   <h3 style="color:black;">Edit Book Category</h3>
                   <div>
                   <div style="border:1px solid lightgray;margin-top:2%;margin-bottom:3%;"></div>
-                    <span style="color:black;margin-right:10px;margin-top:10px;margin-left:3%;">Category Name:</span><input type="text" name="search" style="border:1px solid black;border-radius:5px;width:20%;margin-bottom:5%;">
+                  <?php 
+                    require_once 'db_categories.php';
+
+                    if(isset($_GET["id"]) && array_key_exists("id", $_GET)){
+                      $category = get_category($_GET["id"]);
+                    } 
+                  ?> 
+                  <form action="submit_edit_category.php" method="POST" >
+                    <span style="color:black;margin-right:10px;margin-top:10px;margin-left:3%;">Category Name:</span>
+                    <input type="hidden" name="id" value="<?php echo $category["id"]; ?>" />
+                    <input type="text" name="category_name" value="<?php echo $category["category_name"]; ?>" style="border:1px solid black;border-radius:5px;width:20%;margin-bottom:5%;" />
                   </div>
                   <div>
-                  <input type="button" name="savechanges" value="Save Changes" style="background-color:#6697A7;color:white;border:none;border-radius:8px;height:30px;width:110px;margin-left:10%;"> <input type="button" name="cancel" value="Cancel" style="background-color:transparent;color:black;border:1px solid black;border-radius:8px;height:30px;width:110px;">
+                  <input type="submit" name="savechanges" value="Save Changes" style="background-color:#6697A7;color:white;border:none;border-radius:8px;height:30px;width:110px;margin-left:10%;"> <input type="button" name="cancel" value="Cancel" style="background-color:transparent;color:black;border:1px solid black;border-radius:8px;height:30px;width:110px;">
                   </div>
+                  </form>
                   <?php require_once 'js_scripts.php'; ?>
 </body>
 </html>

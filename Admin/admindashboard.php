@@ -23,7 +23,7 @@
       <div class="col-md-3 left_col" style="background-color:#6697A7;">
         <div class="left_col scroll-view" style="background-color:#6697A7;">
           <div class="navbar nav_title" style="border: 0;background-color:#6697A7;">
-            <a href="index.html" class="site_title"><img src="../image/icon/icon.png" style="width:210px;height:50px;"></a>
+            <a href="#" class="site_title"><img src="../image/icon/icon.png" style="width:210px;height:50px;"></a>
           </div>
           <div class="clearfix"></div>
 

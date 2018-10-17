@@ -154,7 +154,7 @@
               <div class="row x_title">
                 <!-- <div class="col-md-6"> -->
                   <h3 style="color:black;">Book Category</h3>
-                  <a href="addcategory.php"><input type="button" value="Add Category" style="background-color:#6697A7;border-radius:7px;color:white;border:0;width:13%;height:40px;margin-bottom:30px;margin-top:30px;margin-left:30px;"/>
+                  <a href="addcategory.php"><input type="button" value="Add Category" style="background-color:#6697A7;border-radius:7px;color:white;border:0;width:13%;height:40px;margin-bottom:30px;margin-top:30px;margin-left:30px;" /></a>
                   <table class="table table-striped" id="categoryTable">
                     <thead>
                       <tr>
@@ -168,13 +168,17 @@
 
                           $categories = get_categories();
 
-                          while ($row = $categories->fetch_assoc()) {
-                              echo "<tr>";
-                              echo  "<td>" . $row["category_name"] . "</td>";
-                              echo  "<td>" . $row["count_of_books"] . "</td>";
-                              echo "</tr>";
-                          }
-                       ?>
+                          while ($row = $categories->fetch_assoc()) { ?>
+                               <tr>
+                               <form action="editcategory.php" method="GET">
+                                   <td>
+                                      <input type='hidden' name='id' value='<?php echo $row["id"]; ?>'/>
+                                      <input type='submit' class='btn btn-link' value='<?php echo $row["category_name"]; ?>' />
+                                   </td>
+                                  <td><?php echo $row["count_of_books"] ?></td>
+                               </form> 
+                               </tr>
+                          <?php } ?>
                     </tbody>
                   </table>
 

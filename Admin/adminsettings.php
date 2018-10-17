@@ -148,15 +148,24 @@
               <div class="row x_title" style="border-bottom:none;">
                 <!-- <div class="col-md-6"> -->
                 <h3 style="color:black;">SegundaBooks Settings</h3>
-                <form action="submit_category.php" method="POST">
-                    
-                    <div style="border:1px solid lightgray;margin-top:2%;margin-bottom:3%;"></div>
-                    <p style="margin-left:80px;color:black;">Carousel Picture</p>
-                    <span style="color:black;float:left;margin-left:120px;">Picture1:</span>
-                    <input type="text" name="name" style="float:left;border-radius:9px;border:1px solid gray;">
-                    <input type="file" name="name " style="float:left;width:11px;">
+                <div style="border-bottom:1px solid gray;margin-top:36px;">
+                </div>
+                <label style="margin-left:10%;margin-top:3%;color:black;">Carousel Pictures</label>
+                <form>
+                   
+                    <label style="float:left;margin-left:14%;color:black;">Picture 1: &nbsp; </label> <input type="text" style="float:left;margin-right:10px;border:1px solid gray;border-radius:6px;"><input type="file" style="float:left;width:0%;">
                     <br/>
-                    </div>
+                        <br/>
+                    <label style="float:left;margin-left:14%;color:black;">Picture 2:  &nbsp;</label> <input type="text" style="float:left;margin-right:10px;border:1px solid gray;border-radius:6px;"><input type="file" style="float:left;">
+                    <br/>
+                        <br/>
+                        <label style="float:left;margin-left:14%;color:black;">Picture 3: &nbsp;</label> <input type="text" style="float:left;margin-right:10px;border:1px solid gray;border-radius:6px;" ><input type="file" style="float:left;">
+                        <br/>
+                            <br/>
+                            <label style="margin-left:10%;margin-top:10px;font-size:16px;color:black;">Trending Books</label>
+                  <div>
+                    <input type="submit" name="savechanges" value="Save" style="background-color:#6697A7;color:white;border:none;border-radius:8px;height:30px;width:110px;margin-left:30%;margin-top:10%;">
+                  </div>
                 </form>
                 <?php require_once 'js_scripts.php';?>
 </body>

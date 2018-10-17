@@ -148,11 +148,11 @@
               <div class="row x_title" style="border-bottom:none;">
                 <!-- <div class="col-md-6"> -->
                 <h3 style="color:black;">Add New Book Category</h3>
-                <form action="submit_category.php" method="POST">
+                <form action="submit_add_category.php" method="POST">
                   <div>
                     <div style="border:1px solid lightgray;margin-top:2%;margin-bottom:3%;"></div>
                     <span style="color:black;margin-right:10px;margin-top:10px;margin-left:3%;">Category Name:</span>
-                    <input type="text" name="categoryname" style="border:1px solid black;border-radius:5px;width:20%;margin-bottom:5%;">
+                    <input type="text" name="category_name" style="border:1px solid black;border-radius:5px;width:20%;margin-bottom:5%;">
                   </div>
                   <div>
                     <input type="submit" name="savechanges" value="Save Changes" style="background-color:#6697A7;color:white;border:none;border-radius:8px;height:30px;width:110px;margin-left:10%;">

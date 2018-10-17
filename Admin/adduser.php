@@ -162,7 +162,6 @@
                     <span style="color:black;margin-right:10px;margin-top:10px;margin-left:4%;">Contact Number:</span>
                     <input type="phonenumber" name="contactnumber" style="border:1px solid black;border-radius:5px;width:20%;margin-bottom:5%;" required>
                     <div></div>
-
                   </div>
                   <div>
                     <input type="submit" name="savechanges" value="Save Changes" style="background-color:#6697A7;color:white;border:none;border-radius:8px;height:30px;width:110px;margin-left:15%;margin-right:3%;">

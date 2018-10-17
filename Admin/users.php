@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" style="background-color:white;">
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <!-- Meta, title, CSS, favicons, etc. -->
@@ -43,7 +44,7 @@
         </div>
       </div>
 
-      <!-- top navigation -->   
+      <!-- top navigation -->
       <div class="top_nav">
         <div class="nav_menu" style="background-color:#6697A7">
           <nav>
@@ -139,7 +140,7 @@
       <div class="right_col" role="main">
         <!-- top tiles -->
         <div class="row tile_count">
-          
+
         </div>
         <!-- /top tiles -->
 
@@ -148,45 +149,53 @@
             <div class="dashboard_graph">
               <div class="row x_title">
                 <!-- <div class="col-md-6"> -->
-                  <h3>Users</h3>
-                  <a href="adduser.php"><input type="button" value="Add User" style="background-color:#6697A7;border-radius:7px;color:white;border:0;width:13%;height:40px;margin-bottom:30px;margin-top:30px;margin-left:30px;"></a>
-                  <table class="table table-striped" id="usersTable">
-                    <thead>
-                      <tr>
-                        <th>Username</th>
-                        <th>Name</th>
-                        <th>Contact Number</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php 
+                <h3>Users</h3>
+                <a href="adduser.php"><input type="button" value="Add User" style="background-color:#6697A7;border-radius:7px;color:white;border:0;width:13%;height:40px;margin-bottom:30px;margin-top:30px;margin-left:30px;"></a>
+                <table class="table table-striped" id="usersTable">
+                  <thead>
+                    <tr>
+                      <th>Username</th>
+                      <th>Name</th>
+                      <th>Contact Number</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php 
                           require_once 'db_users.php';
                           $users = get_users();
                           while ($row = $users->fetch_assoc()) { ?>
-                              <tr>
-                                  <td>  </td>
-                            echo "<tr>";
-                            echo  "<td>" . "<a href='edituser.php'>" . $row["user_name"] ."</a>". "</td>";
-                            echo  "<td>" . $row["name"]   . "</td>";
-                            echo  "<td>" . $row["contact_number"] . "</td>";
-                            echo "</tr>";
-                        }
-                      ?>                      
-                    </tbody>
-                  </table>
+                      <tr>
+                      <form action="edituser.php" method="GET">
+                        <td>
+                          <?php printf("<input type='hidden' name='id' value='%d' />", $row["id"]); ?>
+                          <?php printf("<input type='submit' value='%s' class='btn btn-link'/>", $row["user_name"]); ?>
+                        </td>
+                        <td>
+                          <?php echo $row["name"]; ?>
+                        </td>
+                        <td>
+                          <?php echo $row["contact_number"]; ?>
+                        </td>
+                        </form>
+                      </tr>
+                   
+                    <?php } ?>
+                  </tbody>
+                </table>
 
                 <!-- </div> -->
 
 
                 <!-- footer content -->
-                </div>      
-           </div>                                                                                      
-          </div>        
-              <?php require_once 'js_scripts.php'; ?>
-              <script>
-                $(document).ready(function () {
-                  $('#usersTable').DataTable();
-                });
-              </script>
+              </div>
+            </div>
+          </div>
+          <?php require_once 'js_scripts.php'; ?>
+          <script>
+            $(document).ready(function () {
+              $('#usersTable').DataTable();
+            });
+          </script>
 </body>
+
 </html>
