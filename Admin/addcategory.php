@@ -1,3 +1,4 @@
+<?php include_once '../index.php'; ?>
 <!DOCTYPE html>
 <html lang="en" style="background-color:white;">
 
@@ -9,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="images/favicon.ico" type="image/ico" />
   <link rel="icon" href="image/icon.png">
-
+  <link rel="stylesheet" href="style/addcategory.css">
   <?php require_once 'stylesheets.php'?>
 
   <title>SegundaBooks</title>
@@ -159,7 +160,6 @@
                     <input type="button" name="cancel" value="Cancel" style="background-color:transparent;color:black;border:1px solid black;border-radius:8px;height:30px;width:110px;">
                   </div>
                 </form>
-                <?php require_once 'js_scripts.php';?>
+                <?php require_once SITE_ROOT.'js_scripts.php';?>
 </body>
-
 </html>

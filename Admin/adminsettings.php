@@ -151,18 +151,20 @@
                 <div style="border-bottom:1px solid gray;margin-top:36px;">
                 </div>
                 <label style="margin-left:10%;margin-top:3%;color:black;">Carousel Pictures</label>
-                <form>
-                   
-                    <label style="float:left;margin-left:14%;color:black;">Picture 1: &nbsp; </label> <input type="text" style="float:left;margin-right:10px;border:1px solid gray;border-radius:6px;"><input type="file" style="float:left;width:0%;">
+                <form method="POST" action="upload_index_files.php" enctype="multipart/form-data">
+                    <label style="float:left;margin-left:14%;color:black;">Picture 1: &nbsp; </label>
+                    <input type="file" name="firstpic" style="float:left;">
                     <br/>
-                        <br/>
-                    <label style="float:left;margin-left:14%;color:black;">Picture 2:  &nbsp;</label> <input type="text" style="float:left;margin-right:10px;border:1px solid gray;border-radius:6px;"><input type="file" style="float:left;">
                     <br/>
-                        <br/>
-                        <label style="float:left;margin-left:14%;color:black;">Picture 3: &nbsp;</label> <input type="text" style="float:left;margin-right:10px;border:1px solid gray;border-radius:6px;" ><input type="file" style="float:left;">
-                        <br/>
-                            <br/>
-                            <label style="margin-left:10%;margin-top:10px;font-size:16px;color:black;">Trending Books</label>
+                    <label style="float:left;margin-left:14%;color:black;">Picture 2:  &nbsp;</label>
+                    <input type="file" name="secondpic" style="float:left;">
+                    <br/>
+                    <br/>
+                    <label style="float:left;margin-left:14%;color:black;">Picture 3: &nbsp;</label>
+                    <input type="file" name="thirdpic" style="float:left;">
+                    <br/>
+                    <br/>
+                    <label style="margin-left:10%;margin-top:10px;font-size:16px;color:black;">Trending Books</label>
                   <div>
                     <input type="submit" name="savechanges" value="Save" style="background-color:#6697A7;color:white;border:none;border-radius:8px;height:30px;width:110px;margin-left:30%;margin-top:10%;">
                   </div>
