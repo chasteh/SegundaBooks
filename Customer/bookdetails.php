@@ -8,7 +8,7 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
 	<link rel="icon" href="image/icon.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="bootsrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 
 
     <title>Segundabooks</title>
@@ -79,7 +79,7 @@ table{
 </style>
 <body>
 <div class="top">
-	<a href="index.php"><img src="image/icon.png" class="img-responsive" id="icon"></a>
+	<a href="index.php"><img src="../image/icon.png" class="img-responsive" id="icon"></a>
 	<a href="signin.php"><input type="button" value="sign-in" class="button" id="sign-in"></a>
 	<a href="signup.php"><input type="button" value="sign-up" class="button"></a>
 	</div>
@@ -100,7 +100,7 @@ table{
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
-        <img src="image/book4.jpg" alt="add-cart-photo" id="add-cart-photo" class="img-thumbnail" >
+        <img src="../image/book4.jpg" alt="add-cart-photo" id="add-cart-photo" class="img-thumbnail" >
         </div>
         <div class="col-md-3" id="item-details">
         <table>
@@ -129,7 +129,7 @@ table{
                 <th><p>Meet The Seller</p></th>
             </tr>
             <tr>
-    <td class="col-md-2"><img src="image/book0.jpg" class="img-circle" alt="HelPic" width="50" height="50" id="profile"></td>
+    <td class="col-md-2"><img src="../image/book0.jpg" class="img-circle" alt="HelPic" width="50" height="50" id="profile"></td>
             </tr>
         </table>
         </div></div>

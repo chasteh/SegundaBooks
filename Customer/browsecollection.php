@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="bootsrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
     <script src="bootstrap/js/jquery-3.3.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -52,12 +52,12 @@
             <th colspan="4">&nbsp;</th>
         </tr>
         <tr>
-            <th><img src="image/book1.jpg"></th>
-            <th><img src="image/book2.jpg"></th>
-            <th><img src="image/book3.jpg"></th>
-            <th><img src="image/book4.jpg"></th>
-			<th><img src="image/book0.jpg"></th>
-			<th><img src="image/book2.jpg"></th>
+            <th><img src="../image/book1.jpg"></th>
+            <th><img src="../image/book2.jpg"></th>
+            <th><img src="../image/book3.jpg"></th>
+            <th><img src="../image/book4.jpg"></th>
+			<th><img src="../image/book0.jpg"></th>
+			<th><img src="../image/book2.jpg"></th>
         </tr>
     </thead>
     <tbody>
@@ -99,12 +99,12 @@
             <th colspan="4">&nbsp;</th>
         </tr>
         <tr>
-            <th><img src="image/book1.jpg"></th>
-            <th><img src="image/book2.jpg"></th>
-            <th><img src="image/book3.jpg"></th>
-            <th><img src="image/book4.jpg"></th>
-			<th><img src="image/book0.jpg"></th>
-			<th><img src="image/book2.jpg"></th>
+            <th><img src="../image/book1.jpg"></th>
+            <th><img src="../image/book2.jpg"></th>
+            <th><img src="../image/book3.jpg"></th>
+            <th><img src="../image/book4.jpg"></th>
+			<th><img src="../image/book0.jpg"></th>
+			<th><img src="../image/book2.jpg"></th>
         </tr>
     </thead>
     <tbody>
