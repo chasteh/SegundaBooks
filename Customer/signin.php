@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	 crossorigin="anonymous">
-	<link rel="stylesheet" href="bootsrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
 	<script src="bootstrap/js/jquery-3.3.1.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
@@ -31,7 +31,7 @@
 
 	<div class="container">
 		<div class="icon-sign-up">
-			<img src="image/icon.png" class="img-fluid" alt="Responsive image" id="icon-sign-up" />
+			<img src="../image/icon.png" class="img-fluid" alt="Responsive image" id="icon-sign-up" />
 			<h6 class="display-5" align="center">Sign-In</h6>
 		</div>
 		<form class="mx-auto" method="post" action="processsignin.php">

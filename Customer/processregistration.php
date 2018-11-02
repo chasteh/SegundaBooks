@@ -1,33 +1,36 @@
 <?php
 
+require_once "../Database/mysqli_connect.php";
+
 $fullname = $_POST["fullname"];
 $username = $_POST["username"];
 $password = $_POST["password"];
 $location = $_POST["location"];
 $contact_number = $_POST["mobile-number"];
 
-$fullname = mysql_escape_string($fullname);
+$fullname = mysqli_real_escape_string($database, $fullname);
 
+$password_hashed = password_hash($password, PASSWORD_DEFAULT);
 
-require_once "Database/mysqli_connect.php";
+$query = "INSERT INTO users 
+(name, user_name, password, contact_number) 
+ VALUES  (?, ?, ?, ?)";
 
-$query = "INSERT INTO Users 
-(name, user_name, password, location, contact_number) 
- VALUES  (?, ?, ?, ?, ?)";
+$stmt = mysqli_prepare($database, $query)
+or die(mysqli_error($database));
 
- $stmt = mysqli_prepare($database, $query);
+mysqli_stmt_bind_param($stmt, "ssss", $fullname, $username, $password_hashed, $contact_number);
 
-mysqli_stmt_bind_param($stmt, "sssss", $fullname, $username, $password, $location, $contact_number);
 
 mysqli_stmt_execute($stmt);
 
 $affected_rows = mysqli_stmt_affected_rows($stmt);
 
 if ($affected_rows == 1) {
-        $query = "SELECT name, user_name, password FROM users WHERE user_name = ? AND password = ? LIMIT 1";
+        $query = "SELECT name, user_name, password FROM users WHERE user_name = ? LIMIT 1";
         $stmt = mysqli_prepare($database, $query);
 
-        mysqli_stmt_bind_param($stmt, "ss", $username, $password);
+        mysqli_stmt_bind_param($stmt, "s", $username);
 
         mysqli_stmt_execute($stmt);
 

@@ -1,17 +1,9 @@
 <?php 
     
-    if(isset($_POST["fullname"]) && array_key_exists("fullname", $_POST)){
-        $full_name = $_POST["fullname"];
-    }
-    if(isset($_POST["username"]) && array_key_exists("username", $_POST)){
-        $user_name = $_POST["username"];
-    }
-    if(isset($_POST["password"]) && array_key_exists("password", $_POST)){
-        $password = $_POST["password"];
-    }
-    if(isset($_POST["contactnumber"]) && array_key_exists("contactnumber", $_POST)){
-        $contact_number = $_POST["contactnumber"];
-    }
+    $full_name = $_POST["fullname"] ?? "";
+    $user_name = $_POST["username"] ?? "";
+    $password = $_POST["password"] ?? "";
+    $contact_number = $_POST["contactnumber"] ?? "";
 
     require_once 'db_users.php';
     $user_info = 

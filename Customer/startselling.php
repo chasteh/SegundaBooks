@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	 crossorigin="anonymous">
-	<link rel="stylesheet" href="bootsrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
 	<script src="bootstrap/js/jquery-3.3.1.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
@@ -87,16 +87,18 @@
 <body>
 <?php 
 session_start();
-if (!isset($_SESSION["authenticated"]) && $_SESSION["authenticated"] === FALSE) {
-		header('location: signin.php');
-	}
+
+$authenticated = $_SESSION["authenticated"] ?? false;
+$user = $_SESSION["user"] ?? "User";
+
+if($authenticated == false) {
+	header("Location: signin.php");
+}
+
 ?>
 
-
 	<div class="top">
-		<a href="index.php"><img src="image/icon.png" class="img-responsive" id="icon"></a>
-		<a href="signin.php"><input type="button" value="sign-in" class="button" id="sign-in"></a>
-		<a href="signup.php	"><input type="button" value="sign-up" class="button"></a>
+		<?php include_once 'login_info.php' ?>
 	</div>
 
 	<div class="container-fluid">
@@ -104,31 +106,42 @@ if (!isset($_SESSION["authenticated"]) && $_SESSION["authenticated"] === FALSE) 
 	</div>
 
 	<div class="container">
-		<form>
+		<form method="POST" action="submit_add_book.php">
 			<div>
-				<input type="file" name="file">
+				<input type="file" name="bookimage">
 			</div>
 
 			<div class="form-group">
 				<label>Item Details</label>
 			</div>
 
-
 			<div class="form-group">
 				<label>What are you selling?</label>
-				<input type="text" class="form-control" id="Name" placeholder="Title">
+				<input type="text" class="form-control" name="title" placeholder="Title">
 			</div>
 			<div class="form-group">
+			<?php include '../Admin/db_categories.php' ?>
 				<label>Category</label>
-				<input type="email" class="form-control" id="Email1" placeholder="Choose Category">
+				<select name="category" class="form-control">
+					<?php $categories = get_categories(); ?>
+					<?php while($category = $categories->fetch_assoc()): ?>
+					<option value="<?php echo $category["id"]; ?>"> <?php echo $category["category_name"]; ?> </option>
+				<?php endwhile; ?>
+				</select>
 			</div>
+
+			<div class="form-group">
+				<label>Status</label>
+				<input type="text" class="form-control" name="status" placeholder="(New, Slightly Used)">
+			</div>
+
 			<div class="form-group">
 				<label>Description</label>
-				<textarea class="form-control" maxlength="255" placeholder="Description"></textarea>
+				<textarea class="form-control" name="description" maxlength="255" placeholder="Description"></textarea>
 			</div>
 			<div class="form-group">
 				<label>Location</label>
-				<input type="text" class="form-control" id="Name" placeholder="Choose Location">
+				<input type="text" class="form-control" name="location" placeholder="Choose Location">
 			</div>
 
 			<input type="submit" class="btn btn-info" placeholder="Sell Your Item Now" id="submit">
