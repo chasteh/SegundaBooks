@@ -1,4 +1,5 @@
 <?php include_once '../index.php' ?>
+<?php include_once '../Customer/db_books.php' ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,26 +25,31 @@
 
 <body>
 <div class="container-fluid">
-<?php include 'login_info.php' ?>
-</div>
-<div class="container-fluid">
-<?php include 'nav_bar.php' ?>
-</div>
-
+		<?php include 'login_info.php' ?>
+	</div>
+	<div class="container-fluid">
+		<?php include 'nav_bar.php' ?>
+	</div>
+<?php 
+session_start();
+$userid = $_SESSION["id"] ?? 0;
+$books = get_books_by_user($userid);
+$book = $books[0] ?? null;
+?>
 
 <div class="container" style="margin-top:2%;">
     <div class="row">
+	
         <div class="col-md-3" style="border:1px solid lightgray;border-radius:10px;height:30%;">
             <div>
                 <p style="text-align:center;color:black;">Profile</p>
                 <div class="col-md-6">
 				<img src="../image/profile.png" style="width:100px;height:100px;border-radius:50px;margin-bottom:3%;">
 				</div>
-                <div><p style="color:black;">Manuel Joseph A.</p></div>
+                <div><p style="color:black;"><?php echo $book["full_name"]; ?></p></div>
 				<div><p style="color:black;">+63 9967491142</p></div>
-				<div><a href="#"><input type="button" value="Settings"></a></div>
+				<div><a href="#"><input type="button" value="Settings" style="background-color:#6697A7;color:white;border:none;"></a></div>
 				</div>
-				
             </div>
 			
 			<div class="col-md-9">
@@ -51,7 +57,11 @@
 				<div style="border-bottom:1px solid lightgray;">
 				</div>
 				<div style="margin-left:8%;margin-top:2%;margin-bottom:2%;"> 
-				<img src="../image/book0.jpg" style="width:100px;height:150px;">
+				<?php foreach($books as $b): ?>
+				<img src="<?php echo  "../Customer/userbookimages/".$b["user_id"]."/".basename($b["picture_path"]); ?>" style="width:100px;height:150px;">
+
+				
+				<?php endforeach; ?>
 				<img src="../image/book0.jpg" style="width:100px;height:150px;">
 				<img src="../image/book0.jpg" style="width:100px;height:150px;">
 				<img src="../image/book0.jpg" style="width:100px;height:150px;">

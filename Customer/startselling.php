@@ -106,7 +106,7 @@ if($authenticated == false) {
 	</div>
 
 	<div class="container">
-		<form method="POST" action="submit_add_book.php">
+		<form method="POST" action="submit_add_book.php" enctype="multipart/form-data">
 			<div>
 				<input type="file" name="bookimage">
 			</div>
@@ -119,6 +119,12 @@ if($authenticated == false) {
 				<label>What are you selling?</label>
 				<input type="text" class="form-control" name="title" placeholder="Title">
 			</div>
+
+			<div class="form-group">
+				<label>Price</label>
+				<input type="number" class="form-control" name="price" placeholder="Price">
+			</div>
+
 			<div class="form-group">
 			<?php include '../Admin/db_categories.php' ?>
 				<label>Category</label>
