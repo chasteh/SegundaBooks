@@ -39,7 +39,7 @@ if($_FILES['bookimage']['name'])
 	 
 	 $save_file_name = strtolower($userid."-"."$file_name"); //You are renaming the file here
 
-	 $target_dir = SITE_ROOT."//Customer//".$dir.$save_file_name;
+	 $target_dir = "//Customer//".$dir.$save_file_name;
 	
   	move_uploaded_file($_FILES['bookimage']['tmp_name'], $target_dir); // Move the uploaded file to the desired folder
 }

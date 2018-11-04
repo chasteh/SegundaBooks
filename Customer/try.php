@@ -57,6 +57,7 @@ $userid = $_SESSION["id"] ?? 0;
 $books = get_books_by_user($userid);
 $book = $books[0] ?? null;
 ?>
+
 <div class="container">
   <div class="row">
     <div class="col-sm-3">

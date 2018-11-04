@@ -1,4 +1,4 @@
-<div class="nav">
+<div class="nav" style="margin-top:10px;">
 	<ul>
 		<li><a href="index.php">Books </a></li>
 		<li class="nav-divider">|</li>
