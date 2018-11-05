@@ -1,6 +1,7 @@
+<?php include_once '../index.php' ?>
+<?php include_once '../Admin/db_users.php' ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -89,7 +90,7 @@
 session_start();
 
 $authenticated = $_SESSION["authenticated"] ?? false;
-$user = $_SESSION["user"] ?? "User";
+$user = get_user($_SESSION["id"] ?? 0);	
 
 if($authenticated == false) {
 	header("Location: signin.php");

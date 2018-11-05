@@ -1,3 +1,9 @@
+	<?php
+	session_start();
+	if (!empty($_SESSION["authenticated"]) && $_SESSION["authenticated"] === TRUE) {
+		header("Location: profile.php");
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,12 +22,6 @@
 	<title>SegundaBooks</title>
 </head>
 <body>
-	<?php
-	session_start();
-	if (!empty($_SESSION["authenticated"]) && $_SESSION["authenticated"] === TRUE) {
-		$user = $_SESSION["user"];
-	}
-?>
 	<div class="container-fluid">
 		<?php include 'login_info.php' ?>
 	</div>

@@ -28,15 +28,55 @@ function insert_book($book_info){
     }
 }
 
+function get_no_of_sold_items($user_id){
+    $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) 
+    or die('Error Connecting to MYSQL' . mysqli_connect_error());
+    $query = "SELECT COUNT(is_sold) AS sold_books FROM book_details WHERE user_id = ? AND is_sold = 1 LIMIT 1";
+    $stmt = $mysqli->prepare($query);
+    $stmt->bind_param('s', $user_id);
+
+    if ($stmt->execute()) {
+
+        $result = $stmt->get_result();
+
+        if($count = $result->fetch_assoc()){
+           return $count["sold_books"];
+        }
+    
+    }   
+}
+
+function get_no_of_reserved_items($user_id){
+    $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) 
+    or die('Error Connecting to MYSQL' . mysqli_connect_error());
+    $query = "SELECT COUNT(is_reserved) AS reserved_items FROM book_details WHERE user_id = ? AND is_reserved = 1 LIMIT 1";
+    $stmt = $mysqli->prepare($query);
+    $stmt->bind_param('s', $user_id);
+
+    if ($stmt->execute()) {
+
+        $result = $stmt->get_result();
+
+        if($count = $result->fetch_assoc()){
+           return $count["reserved_items"];
+        }
+    
+    }   
+}
+
+
 function get_books_by_user($userid){
     $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) 
     or die('Error Connecting to MYSQL' . mysqli_connect_error());
     $query = "SELECT picture_path, book_title, 
-        status, description, location, c.category_name AS category_name, user_id, is_sold, is_reserved, u.name AS full_name
+        status, price ,description, location, c.category_name AS category_name, 
+        user_id, is_sold, is_reserved, 
+        u.name AS full_name,
+        u.contact_number AS contact_number
         FROM book_details bt 
-        JOIN category c ON c.id = bt.category_id
+        LEFT JOIN category c ON c.id = bt.category_id
         JOIN users u ON bt.user_id = u.id 
-        WHERE u.id = ?";
+        WHERE bt.user_id = ?";
 
     $stmt = $mysqli->prepare($query) or die($mysqli->error);
     $stmt->bind_param("i", $userid);
@@ -45,16 +85,15 @@ function get_books_by_user($userid){
 
     $result = $stmt->get_result();
 
-
     $books = array_fill(0, $result->num_rows, array_fill(0,10, ''));
 
     for ($i=0; $i < $result->num_rows; $i++) { 
         $row = $result->fetch_assoc();
         $books[$i] = array(
-            "full_name" => $row["full_name"],
             "picture_path" => $row["picture_path"],
             "book_title" => $row["book_title"],
             "status" => $row["status"],
+            "price" => $row["price"],
             "description" => $row["description"],
             "location" => $row["location"],
             "category_name" => $row["category_name"],

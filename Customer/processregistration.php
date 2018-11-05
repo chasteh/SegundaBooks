@@ -27,7 +27,7 @@ mysqli_stmt_execute($stmt);
 $affected_rows = mysqli_stmt_affected_rows($stmt);
 
 if ($affected_rows == 1) {
-        $query = "SELECT name, user_name, password FROM users WHERE user_name = ? LIMIT 1";
+        $query = "SELECT id, name, user_name, password FROM users WHERE user_name = ? LIMIT 1";
         $stmt = mysqli_prepare($database, $query);
 
         mysqli_stmt_bind_param($stmt, "s", $username);
@@ -41,7 +41,7 @@ if ($affected_rows == 1) {
         if ($row !== null) {
             session_start();
             header('location:index.php');
-            $_SESSION["user"] = $row["name"];
+            $_SESSION["id"] = $row["id"];
             $_SESSION["authenticated"] = true;
         }
 }

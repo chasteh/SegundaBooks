@@ -24,7 +24,6 @@ if ($row !== null && password_verify($password, $row["password"])) {
         session_start();
         header('Location: index.php');
         $_SESSION["id"] = $row["id"];
-        $_SESSION["user"] = $row["name"];
         $_SESSION["authenticated"] = true;
 }
 else {

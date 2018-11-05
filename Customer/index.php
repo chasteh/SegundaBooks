@@ -1,4 +1,12 @@
 <?php include_once '../index.php' ?>
+<?php include_once '../Admin/db_users.php' ?>
+
+<?php
+	session_start();
+	if (!empty($_SESSION["authenticated"]) && $_SESSION["authenticated"] === TRUE) {
+		$user = get_user($_SESSION["id"]);
+	}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,14 +28,6 @@
 </head>
 
 <body>
-	<?php
-	session_start();
-	if (!empty($_SESSION["authenticated"]) && $_SESSION["authenticated"] === TRUE) {
-		$user = $_SESSION["user"];
-	}
-?>
-
-
 	<div class="container-fluid">
 		<?php include 'login_info.php' ?>
 	</div>

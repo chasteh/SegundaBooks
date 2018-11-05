@@ -1,3 +1,5 @@
+<?php include_once '../index.php' ?>
+<?php include_once '../Admin/db_users.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +19,7 @@
 <?php
 	session_start();
 	if (!empty($_SESSION["authenticated"]) && $_SESSION["authenticated"] === TRUE) {
-		$user = $_SESSION["user"];
+		$user = get_user($_SESSION["id"] ?? 0);
 	}
 ?>
 <div class="container-fluid">

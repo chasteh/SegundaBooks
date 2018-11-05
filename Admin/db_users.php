@@ -14,7 +14,6 @@
         $user_info["password"],
         $user_info["contact_number"]);
 
-        
         if ($stmt->execute()) {
             if ($stmt->affected_rows > 0) {
                 return true;
@@ -30,6 +29,8 @@
         return $result;
     }
 
+
+
     function get_user($user_id){
         $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) 
         or die('Error Connecting to MYSQL' . mysqli_connect_error());
@@ -40,7 +41,6 @@
         if ($stmt->execute()) {
 
             $result = $stmt->get_result();
-
 
             if($user = $result->fetch_assoc()){
                 return array("user_id" => $user["id"],

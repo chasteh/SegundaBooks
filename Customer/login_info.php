@@ -5,7 +5,7 @@
 			<div class="col-lg-12 col-md-3 col-sm-3 col-xs-3">
 				<?php if(!empty($_SESSION["authenticated"]) && $_SESSION["authenticated"] === TRUE): ?>
 				<p class="name">
-					<?php echo $user ?>
+					<?php echo $user["full_name"] ?>
 				</p>
 				<a href='logout.php' id='logout'>Logout</a>
 				<a href="#"><img src="../image/profile.png" class="img-thumbnail" id="profile-picture" /></a>

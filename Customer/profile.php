@@ -1,6 +1,14 @@
+
 <?php include_once '../index.php' ?>
 <?php include_once '../Customer/db_books.php' ?>
-
+<?php include_once '../Admin/db_users.php' ?>
+<?php session_start();
+$userid = $_SESSION["id"] ?? 0;
+$user = get_user($userid);
+// if (!$user) {
+//   header("Location: signin.php");
+// }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,11 +59,10 @@
 	<div class="container-fluid">
 		<?php include 'nav_bar.php' ?>
 	</div>
-<?php 
-session_start();
-$userid = $_SESSION["id"] ?? 0;
+<?php
 $books = get_books_by_user($userid);
-$book = $books[0] ?? null;
+$sold_books = get_no_of_sold_items($userid);
+$reserved_books = get_no_of_reserved_items($userid);
 ?>
 <div class="container">
   <div class="row">
@@ -64,9 +71,9 @@ $book = $books[0] ?? null;
         <p style="text-align:center;"><b>Profile</b></p>
         <div>
         <img src="../image/profile.png" style="width:100px;height:100px;">
-        <div><p style="color:black;"><?php echo $book["full_name"]; ?></p></div>
-          <div style="position:absolute;top:50px;left:40%;">  <p>Full Name</p>
-            <p>Mobile Number</p>
+        <div><p style="color:black;"></p></div>
+          <div style="position:absolute;top:50px;left:40%;">  <p><?php echo $user["full_name"]; ?></p>
+            <p><?php echo $user["contact_number"]; ?></p>
             <input type="button" value="Settings" style="background-color:#6697A7;color:white;border:none;margin-left:30%;">
             </div>
         </div>
@@ -74,8 +81,8 @@ $book = $books[0] ?? null;
     </div>
     <!-- Second-->
     <div style="border:1px solid lightgray;border-radius:10px;margin-bottom:5px;text-align:center;">
-   <label style="color:black;margin-right:5px;">No. of Sold Items:</label><label style="color:black;">4</label>
-   <label style="color:black;">No. of Reserved Items:</label><label style="color:black;">3</label>
+   <label style="color:black;margin-right:5px;">No. of Sold Items:</label><label style="color:black;"> <?php echo $sold_books; ?> </label>
+   <label style="color:black;">No. of Reserved Items: </label><label style="color:black;"> <?php echo $reserved_books; ?> </label>
    </div>
     <!-- /Second-->
     
@@ -108,46 +115,19 @@ $book = $books[0] ?? null;
 
 				<table style="width:100%;" align="right">
 					<tbody>
-						<tr>
-							<td><a href="#"><img src="../image/book0.jpg" style="width:125px;height:175px;margin-bottom:10px;margin-top:10px;"></a></td>
-							<td>
-								<p>Title: Programming IV book for Senior Highschool 2nd Ed</p>
-								<p>Status: Slightly Used</p>
-								<p>Price: $120.00</p>
-							</td>
-						</tr>
-						<tr>
-							<td><img src="../image/book1.jpg" style="width:125px;height:175px;"></td>
-							<td>
-								<p>Title: Programming IV book for Senior Highschool 2nd Ed</p>
-								<p>Status: Slightly Used</p>
-								<p>Price: $120.00</p>
-							</td>
-						</tr>
-					</tbody>
-				</table>
 				<?php foreach($books as $b): ?>
-				<img src="<?php echo  "../Customer/userbookimages/".$b["user_id"]."/".basename($b["picture_path"]); ?>" style="width:100px;height:150px;">
-
-				
+						<tr>
+							<td><a href="#"><img src="<?php echo $b["picture_path"];  ?>" style="width:125px;height:175px;margin-bottom:10px;margin-top:10px;"></a></td>
+							<td>
+								<p>Title: <?php echo $b["book_title"] ?></p>
+								<p>Status: <?php echo $b["status"] ?></p>
+								<p>Price: <?php echo $b["price"] ?></p>
+							</td>
+						</tr>
 				<?php endforeach; ?>
-				
-				<!-- <div class="row" style="margin-bottom:10px;">
-					<div class="col-sm-3">
-						<a href="#"><img src="../image/book0.jpg" style="width:125px;height:175px;"></a>
-					</div>
-					<div class="col-md-8" style="margin-top:5%;margin-left:-50px;">
-						<p style="color:black;">
-							Title: Programming IV book for Senior Highschool 2nd Ed
-						</p>
-						<p style="color:black;">
-							Slightly Used
-						</p>
-						<p style="color:black;">
-							$120.00
-						</p>
-					</div>
-				</div> -->
+					</tbody>
+				</table>				
+			
 			</div>	
         </div>		
     </div>

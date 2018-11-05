@@ -1,8 +1,6 @@
 <?php 
 session_start();
 $userid = $_SESSION["id"] ?? 0; 
-
-
 include_once '../index.php';
 include_once '../Customer/db_books.php';
 
@@ -34,14 +32,14 @@ if($_FILES['bookimage']['name'])
 	$dir = "userbookimages/".$userid."/";
 
  	if(!is_dir($dir)){
-		mkdir($dir);
+		mkdir($dir, 0777, true);
 	 }
-	 
+
 	 $save_file_name = strtolower($userid."-"."$file_name"); //You are renaming the file here
 
-	 $target_dir = "//Customer//".$dir.$save_file_name;
+	 $target_dir = $dir.$save_file_name;
 	
-  	move_uploaded_file($_FILES['bookimage']['tmp_name'], $target_dir); // Move the uploaded file to the desired folder
+  	move_uploaded_file($_FILES['bookimage']['tmp_name'], $dir.$save_file_name); // Move the uploaded file to the desired folder
 }
 
 $book_info["picture_path"] = $target_dir;
