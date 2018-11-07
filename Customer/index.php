@@ -24,9 +24,8 @@
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 	<title>SegundaBooks</title>
 	<style>
-	</style>
+	</style> 
 </head>
-
 <body>
 	<div class="container-fluid">
 		<?php include 'login_info.php' ?>
@@ -63,7 +62,6 @@
     </div>
 
 		<div class="item">
-		<img src="<?php echo "../Admin/uploads/carousel3.jpg"; ?>" alt="..." style="width:50%;margin-left:27%;">
       <div class="carousel-caption">
         ...
       </div>
@@ -90,13 +88,13 @@
 	<div class="container">
 		<p class="my-2 text-center text-lg-left" id="trending">Trending in books</p>
 		<div class="row text-center text-lg-left">
-			<div class="col-lg-4 col-md-4 col-xs-6" style="height:50px;">
+			<div class="col-lg-4 col-md-4 col-xs-6">
 				<a href="#" class="d-block mb-1 h-50">
 					<img class="img-fluid img-thumbnail" src="../image/book2.jpg" alt="">
 				</a>
 			</div>
 
-			<div class="col-lg-4 col-md-4 col-xs-6" id="six-books" style="height:50px;">
+			<div class="col-lg-4 col-md-4 col-xs-6" id="six-books">
 				<a href="#" class="d-block mb-1 h-50">
 					<img src="../image/book1.jpg" width="80" height="100" id="second" />
 					<img src="../image/book2.jpg" width="80" height="100" id="third" />

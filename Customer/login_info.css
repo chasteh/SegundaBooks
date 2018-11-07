@@ -1,0 +1,22 @@
+#segundabooks-icon{
+    width:200px;
+    height:75px;
+    margin-right:800px;
+}
+#profile-icon{
+    width:60px;
+    height:50px;
+    border-radius:50px;
+    margin-top:15px;
+}
+#logout{
+    margin-top:0px;
+}
+#full-name{
+    line-height:30px;
+}
+#sign-button{
+    margin-top:20px;
+    margin-bottom:20px;
+    margin-left:25px;
+}
