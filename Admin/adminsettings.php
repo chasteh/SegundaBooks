@@ -1,3 +1,14 @@
+<?php include_once '../index.php' ?>
+<?php include_once 'db_users.php' ?>
+
+<?php
+	session_start();
+	if (!empty($_SESSION["authenticated"]) && $_SESSION["authenticated"] === TRUE) {
+		$user = get_user($_SESSION["id"]);
+	}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" style="background-color:white;">
 
@@ -18,122 +29,13 @@
 <body class="nav-md">
   <div class="container body">
     <div class="main_container" style="background-color:#6697A7;">
-      <div class="col-md-3 left_col" style="background-color:#6697A7;">
-        <div class="left_col scroll-view" style="background-color:#6697A7;">
-          <div class="navbar nav_title" style="border: 0;background-color:#6697A7;">
-            <a href="index.html" class="site_title"><img src="../image/icon/icon.png" style="width:210px;height:50px;"></a>
-          </div>
-          <div class="clearfix"></div>
+    
 
-          <!-- menu profile quick info -->
-          <div class="profile clearfix">
-            <div class="profile_pic">
-              <img src="../image/profile.png" style="width:50px;height:50px;" class="img-circle profile_img">
-            </div>
-            <div class="profile_info">
-              <span style="font-family:">Welcome,</span>
-              <h2>Admin</h2>
-            </div>
-          </div>
-          <!-- /menu profile quick info -->
-
-          <br />
-
-          <!-- sidebar menu -->
-          <?php require_once 'sidebar.php'?>
-        </div>
-      </div>
-
+      <!-- Side Bar -->
+      <?php require_once 'sidebar.php' ?>
+        <!-- /Side Bar -->
       <!-- top navigation -->
-      <div class="top_nav">
-        <div class="nav_menu" style="background-color:#6697A7">
-          <nav>
-            <div class="nav toggle">
-              <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-            </div>
-
-            <ul class="nav navbar-nav navbar-right">
-              <li class="">
-                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <img src="images/img.jpg" alt="">Admin
-                  <span class=" fa fa-angle-down"></span>
-                </a>
-                <ul class="dropdown-menu dropdown-usermenu pull-right">
-                  <li><a href="javascript:;"> Profile</a></li>
-                  <li>
-                    <a href="javascript:;">
-                      <span class="badge bg-red pull-right">50%</span>
-                      <span>Settings</span>
-                    </a>
-                  </li>
-                  <li><a href="javascript:;">Help</a></li>
-                  <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
-                </ul>
-              </li>
-              </a>
-              <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                <li>
-                  <a>
-                    <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                    <span>
-                      <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                    </span>
-                    <span class="message">
-                      Film festivals used to be do-or-die moments for movie makers. They were where...
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                    <span>
-                      <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                    </span>
-                    <span class="message">
-                      Film festivals used to be do-or-die moments for movie makers. They were where...
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                    <span>
-                      <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                    </span>
-                    <span class="message">
-                      Film festivals used to be do-or-die moments for movie makers. They were where...
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                    <span>
-                      <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                    </span>
-                    <span class="message">
-                      Film festivals used to be do-or-die moments for movie makers. They were where...
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <div class="text-center">
-                    <a>
-                      <strong>See All Alerts</strong>
-                      <i class="fa fa-angle-right"></i>
-                    </a>
-                  </div>
-                </li>
-              </ul>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
+        <?php require_once 'top_nav.php' ?>
       <!-- /top navigation -->
 
       <!-- page content -->

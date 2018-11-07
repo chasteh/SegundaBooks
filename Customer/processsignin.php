@@ -8,7 +8,7 @@ $password = $_POST["password"];
 $username = mysqli_real_escape_string($database, $username);
 $password = mysqli_real_escape_string($database, $password);
 
-$query = "SELECT id, name, user_name, password FROM users WHERE user_name = ? LIMIT 1";
+$query = "SELECT id, name, user_name, password, user_role FROM users WHERE user_name = ? LIMIT 1";
 
 $stmt = mysqli_prepare($database, $query);
 
@@ -22,7 +22,15 @@ $row = mysqli_fetch_assoc($result);
 
 if ($row !== null && password_verify($password, $row["password"])) {
         session_start();
-        header('Location: index.php');
+
+        if ($row["user_role"] == 1) {
+            header('Location: ../Admin/admindashboard.php');                         
+        }
+
+        else if ($row["user_role"] == 0) {
+            header('Location: profile.php');             
+        }
+
         $_SESSION["id"] = $row["id"];
         $_SESSION["authenticated"] = true;
 }

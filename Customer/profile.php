@@ -5,9 +5,9 @@
 <?php session_start();
 $userid = $_SESSION["id"] ?? 0;
 $user = get_user($userid);
-// if (!$user) {
-//   header("Location: signin.php");
-// }
+if ($userid == 0) {
+  header("Location: signin.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

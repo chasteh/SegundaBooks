@@ -1,3 +1,14 @@
+<?php include_once '../index.php' ?>
+<?php include_once 'db_users.php' ?>
+
+<?php
+	session_start();
+	if (!empty($_SESSION["authenticated"]) && $_SESSION["authenticated"] === TRUE) {
+		$user = get_user($_SESSION["id"]);
+	}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" style="background-color:white;">
 <head>
