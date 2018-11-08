@@ -10,7 +10,7 @@
               <img src="../image/profile.png" style="width:50px;height:50px;" class="img-circle profile_img">
             </div>
             <div class="profile_info">
-              <span style="font-family:">Welcome,</span>
+              <span style="font-family:">Welcome,</span>   
               <h2><?php echo $user["full_name"] ?></h2>
             </div>
           </div>

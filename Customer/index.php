@@ -62,6 +62,7 @@
     </div>
 
 		<div class="item">
+		<img src="<?php echo "../Admin/uploads/carousel3.jpg"; ?>" alt="..." style="width:50%;margin-left:27%;">
       <div class="carousel-caption">
         ...
       </div>

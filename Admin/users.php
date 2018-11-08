@@ -41,11 +41,10 @@
 
 
       <!-- Main content -->
-        <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="right_col" role="main">
             <div class="dashboard_graph">
-              <div class="row x_title" style="width:1000px;margin-left:250px;">
-                <div class="col-md-6"> 
+              <div class="row x_title" style="width:100%;"> <!--pasensya na bes :< -->
+                <div class="col-md-12"> 
                 <h3>Users</h3>
                 <a href="adduser.php"><input type="button" value="Add User" style="background-color:#6697A7;border-radius:7px;color:white;border:0;width:13%;height:40px;margin-bottom:30px;margin-top:30px;margin-left:30px;"></a>
                 <table class="table table-striped" id="usersTable">
@@ -82,7 +81,6 @@
 
                 <!-- footer content -->
               </div>
-            </div>
           </div>
           <?php require_once 'js_scripts.php'; ?>
           <script>

@@ -1,6 +1,5 @@
 <?php include_once '../index.php' ?>
 <?php include_once 'db_users.php' ?>
-
 <?php
 	session_start();
 	if (!empty($_SESSION["authenticated"]) && $_SESSION["authenticated"] === TRUE) {
@@ -24,7 +23,6 @@
   <style>
   </style>
 </head>
-
 <body class="nav-md">
   <div class="container body">
     <div class="main_container" style="background-color:#6697A7;">  

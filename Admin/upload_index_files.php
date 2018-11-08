@@ -2,6 +2,9 @@
 
 include_once '../index.php';
 
+header("Location: admindashboard.php");
+
+
 if($_FILES['firstpic']['name'])
 {
  // Folder where you wanna move the file.
@@ -21,7 +24,7 @@ if($_FILES['thirdpic']['name'])
  // Folder where you wanna move the file.
   $third_file_name = strtolower("carousel3.jpg"); //You are renaming the file here
   move_uploaded_file($_FILES['thirdpic']['tmp_name'], SITE_ROOT."/Admin/uploads/".$third_file_name); // Move the uploaded file to the desired folder
-} 
+}
 
 
 // $inser_into_db="INSERT INTO `database`.`table` (`folder_name`, `file_name`) VALUES('$save_path', '$myname'))";

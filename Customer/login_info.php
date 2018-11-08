@@ -10,6 +10,7 @@
 		height:50px;
 		border-radius:50px;
 		margin-top:15px;
+		float:right;
 	}
 	#logout{
 		margin-top:0px;
@@ -18,6 +19,7 @@
 		line-height:30px;
 	}
 	#sign-button{
+		float:right; 
 		margin-top:20px;
 		margin-bottom:20px;
 		margin-left:25px;
@@ -26,23 +28,27 @@
 </head>
 <div class="container-fluid">
 <div class="row">
-<img src="../image/icon.png" alt="..." id="segundabooks-icon">
-		
-		
-		<?php if(!empty($_SESSION["authenticated"]) && $_SESSION["authenticated"] === TRUE): ?>
-		<img src="../image/profile.png" alt="..." id="profile-icon">
-		<div class="col-md" id="full-name">
-				<p style="line-height:40px;">
-					<?php echo $user["full_name"] ?>
-				</p>
-				<a href="logout.php" style="color:red;"><p style=margin-top:-10px;>Logout</p></a>
+
+		<div class="col-md-6">
+		<img src="../image/icon.png" alt="..." id="segundabooks-icon">
+		</div>
+
+			<?php if(!empty($_SESSION["authenticated"]) && $_SESSION["authenticated"] === TRUE): ?>
+				<div class="col-md-5" id="full-name">
+				<img src="../image/profile.png" alt="..." id="profile-icon">
 				</div>
-				<?php else: ?>
-				<div id="sign-button">
+				<div class="col-md-1" id="full-name">
+					<p style="line-height:40px;">
+						<?php echo $user["full_name"] ?>
+					</p>
+					<a href="logout.php" style="color:red;"><p style=margin-top:-20px;>Logout</p></a>
+				</div>
+			<?php else: ?>
+				<div class="col-md-2" id="sign-button">
 					<a href='signin.php'><input type='button' value='sign-in' class='btn btn-info' style="background-color:#6697A7;border:none;"></a>
 					<a href='signup.php'><input type='button' value='sign-up' class='btn btn-info' style="background-color:#6697A7;border:none;"></a>
 				</div>
-				<?php endif; ?>
+			<?php endif; ?>
 	</div>
 	
 </div>
