@@ -19,15 +19,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="images/favicon.ico" type="image/ico" />
   <link rel="icon" href="image/icon.png">
-
+  <link rel="stylesheet" href="styles/users.css" />
   <?php require_once 'stylesheets.php' ?>
 
   <title>SegundaBooks</title>
+  
 </head>
 
 <body class="nav-md">
   <div class="container body">
-    <div class="main_container" style="background-color:#6697A7;">
+    <div class="main_container">
 
 
       <!-- Side Bar -->
@@ -43,10 +44,10 @@
       <!-- Main content -->
         <div class="right_col" role="main">
             <div class="dashboard_graph">
-              <div class="row x_title" style="width:100%;"> <!--pasensya na bes :< -->
+              <div class="row x_title" id="rowx_title"> <!--pasensya na bes :< -->
                 <div class="col-md-12"> 
                 <h3>Users</h3>
-                <a href="adduser.php"><input type="button" value="Add User" style="background-color:#6697A7;border-radius:7px;color:white;border:0;width:13%;height:40px;margin-bottom:30px;margin-top:30px;margin-left:30px;"></a>
+                <a href="adduser.php"><input type="button" value="Add User" class="add-user"></a>
                 <table class="table table-striped" id="usersTable">
                   <thead>
                     <tr>

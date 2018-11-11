@@ -1,0 +1,44 @@
+#rowx_title{
+    border-bottom:none;
+  }
+  h3{
+    color:black;
+  }
+  #container_body{
+    background-color:#6697A7;
+  }
+  #dashboard_graph{
+    height: 500px;
+  }
+.under-edit-book-category{
+  border:1px solid lightgray;margin-top:2%;margin-bottom:3%;
+}
+#category-name{
+  color:black;
+  margin-right:10px;
+  margin-top:10px;
+  margin-left:3%;
+}
+#category_name{
+  border:1px solid black;
+  border-radius:5px;
+  width:20%;
+  margin-bottom:5%;
+}
+.submit{
+  background-color:#6697A7;
+  color:white;
+  border:none;
+  border-radius:8px;
+  height:30px;
+  width:110px;
+  margin-left:10%;
+}
+.cancel{
+  background-color:transparent;
+  color:black;
+  border:1px solid black;
+  border-radius:8px;
+  height:30px;
+  width:110px
+}

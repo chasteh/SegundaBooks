@@ -1,0 +1,43 @@
+#dashboard_graph{
+    height: 500px;
+  }
+  #rowx_title{
+    border-bottom:none;
+  }
+  #form-span{
+    color:black;
+    margin-right:10px;
+    margin-top:10px;
+    margin-left:3%;
+  }
+  .under-addnewbook-category{
+    border:1px solid lightgray;
+    margin-top:2%;
+    margin-bottom:3%;
+  }
+  #form-text{
+    border:1px solid black;
+    border-radius:5px;
+    width:20%;
+    margin-bottom:5%;
+  }
+  .submit{
+    background-color:#6697A7;
+    color:white;
+    border:none;
+    border-radius:8px;
+    height:30px;
+    width:110px;
+    margin-left:10%;
+  }
+  h3{
+      color: black;
+  } 
+  .cancel{
+    background-color:transparent;
+    color:black;
+    border:1px solid black;
+    border-radius:8px;
+    height:30px;
+    width:110px;
+  }

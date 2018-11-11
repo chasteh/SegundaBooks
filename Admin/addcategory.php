@@ -17,15 +17,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="images/favicon.ico" type="image/ico" />
   <link rel="icon" href="image/icon.png">
-
+  <link rel="stylesheet" href="styles/addcategory.css" />
   <?php require_once 'stylesheets.php' ?>
-
   <title>SegundaBooks</title>
 </head>
-
 <body class="nav-md">
   <div class="container body">
-    <div class="main_container" style="background-color:#6697A7;">
+    <div class="main_container">
 
         <!-- Side Bar -->
         <?php require_once 'sidebar.php' ?>
@@ -42,19 +40,19 @@
         <!-- /top tiles -->
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="dashboard_graph" style="height: 500px;">
-              <div class="row x_title" style="border-bottom:none;">
-                <!-- <div class="col-md-6"> -->
-                <h3 style="color:black;">Add New Book Category</h3>
+            <div class="dashboard_graph" id="dashboard_graph">
+              <div class="row x_title" id="rowx_title">
+                <h3 class="h3">Add New Book Category</h3>
                 <form action="submit_add_category.php" method="POST">
                   <div>
-                    <div style="border:1px solid lightgray;margin-top:2%;margin-bottom:3%;"></div>
-                    <span style="color:black;margin-right:10px;margin-top:10px;margin-left:3%;">Category Name:</span>
-                    <input type="text" name="category_name" style="border:1px solid black;border-radius:5px;width:20%;margin-bottom:5%;">
+                <!-- <div class="col-md-6"> -->
+                    <div class="under-addnewbook-category"></div>
+                    <span id="form-span">Category Name:</span>
+                    <input type="text" name="category_name" id="form-text">
                   </div>
                   <div>
-                    <input type="submit" name="savechanges" value="Save Changes" style="background-color:#6697A7;color:white;border:none;border-radius:8px;height:30px;width:110px;margin-left:10%;">
-                    <input type="button" name="cancel" value="Cancel" style="background-color:transparent;color:black;border:1px solid black;border-radius:8px;height:30px;width:110px;">
+                    <input type="submit" name="savechanges" value="Save Changes" class="submit">
+                    <input type="button" name="cancel" value="Cancel" class="cancel">
                   </div>
                 </form>
                 <?php require_once 'js_scripts.php';?>

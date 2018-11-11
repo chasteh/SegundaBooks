@@ -1,0 +1,36 @@
+#row_x_title{
+    border-bottom:none;
+  }
+  .Carousel_Pictures{
+    margin-left:10%;
+    margin-top:3%;
+    color:black;
+  }
+  .under_segundabooks_settings{
+    border-bottom:1px solid gray;
+    margin-top:36px;
+  }
+  h3{
+    color:black;
+    }
+    .labelpictures{
+      float:left;
+      margin-left:14%;
+      color:black;
+    }
+    .trending-books{
+      margin-left:10%;
+      margin-top:10px;
+      font-size:16px;
+      color:black;
+    }
+    .submit-settings{
+        background-color:#6697A7;
+        color:white;
+        border:none;
+        border-radius:8px;
+        height:30px;
+        width:110px;
+        margin-left:25%;
+        margin-top:3%;
+    }

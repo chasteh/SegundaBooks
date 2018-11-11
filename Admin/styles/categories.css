@@ -1,0 +1,15 @@
+table tr td a:hover{
+    color:#264c51;
+  }
+    .add-category{
+      background-color:#6697A7;
+      border-radius:7px;
+      color:white;
+      border:0;
+      width:13%;
+      height:40px;
+      margin-bottom:30px;
+      margin-top:30px;
+      margin-left:30px;
+    
+  }

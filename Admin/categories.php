@@ -19,20 +19,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="images/favicon.ico" type="image/ico" />
   <link rel="icon" href="image/icon.png">
-
+  <link rel="stylesheet" href="styles/categories.css" />
   <?php require_once 'stylesheets.php' ?>
 
   <title>SegundaBooks</title>
-  <style>
-    table tr td a:hover{
-	color:#264c51;
-}
-  </style>
+  
 </head>
 
 <body class="nav-md">
   <div class="container body">
-    <div class="main_container" style="background-color:#6697A7;">
+    <div class="main_container">
           <!-- sidebar menu -->
           <?php require_once 'sidebar.php' ?>
           <!-- /sidebar menu -->
@@ -54,7 +50,7 @@
               <div class="row x_title">
                 <!-- <div class="col-md-6"> -->
                   <h3 style="color:black;">Book Category</h3>
-                  <a href="addcategory.php"><input type="button" value="Add Category" style="background-color:#6697A7;border-radius:7px;color:white;border:0;width:13%;height:40px;margin-bottom:30px;margin-top:30px;margin-left:30px;" /></a>
+                  <a href="addcategory.php"><input type="button" value="Add Category" class="add-category"/></a>
                   <table class="table table-striped" id="categoryTable">
                     <thead>
                       <tr>

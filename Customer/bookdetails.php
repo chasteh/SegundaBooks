@@ -10,92 +10,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link ref="stylesheet" href="#.css">
-
+    <link rel="stylesheet" href="styles/bookdetails.css" />
     <title>Segundabooks</title>
 </head>
-<style>
-    #icon{
-	width:200px;
-	height:50px;
-}
-#sign-in{
-	margin-left:15px;
-}
-.button{
-	float:right;
-	position:relative;
-	top:10px;
-	right:45px;
-	background-color:transparent;
-	border-radius:6px;
-	border:1px solid black;
-}
-.nav{
-	background-color:#6697A7;
-	margin-bottom:100px;
-}
-.nav ul{
-	list-style:none;
-	height:30px;
-}
-.nav ul li{
-	float:left;
-	padding:5px;
-	line-height:auto;
-	position:relative;
-	top:10px;
-}
-.nav ul li a{
-	color:white;
-	text-decoration:none; 
-}
-.nav-divider{
-	color:white;
-}
-#add-cart-photo{
-    width:300px;
-    height:500px;
-    margin-left:10%;
-    margin-top:-30px;
-    position:relative;
-    left:10px;
-}
-table, th, .border-bottom{
-    border-bottom:1px solid gray;
-}
-table{
-    border:1px solid gray;
-    border-radius:5px;
-    padding:1px;
-}
-.second-table{
-    width:310px;
-    margin-top:20px;
-    margin-right:30px;
-}
-#profile{
-    border-radius:32px;
-}
-</style>
+
 <body>
-<div class="top">
-	<a href="index.php"><img src="../image/icon.png" class="img-responsive" id="icon"></a>
-	<a href="signin.php"><input type="button" value="sign-in" class="button" id="sign-in"></a>
-	<a href="signup.php"><input type="button" value="sign-up" class="button"></a>
-	</div>
-<div class="nav">
-	<ul>
-		<li><a href="#">Books </a></li>
-		<li class="nav-divider">|</li>
-		<li><a href="browsecollection.php">Browse Collection</a></li>
-		<li class="nav-divider">|</li>
-		<li><a href="#">Rare Books</a></li>
-		<li class="nav-divider">|</li>
-		<li><a href="#">School Books</a></li>
-		<li><a href="#" class="cart">My Cart</a></li>
-		<li class="nav-divider">|</li>
-		<li><a href="startselling.php" class="selling">Start Selling</a></li>
-	</ul>
+<div class="container-fluid">
+<?php include 'login_info.php' ?>
+</div>
+<div class="container-fluid">
+<?php include 'nav_bar.php' ?>
 </div>
 <div class="container-fluid">
     <div class="row">
