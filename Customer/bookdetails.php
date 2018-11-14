@@ -1,3 +1,23 @@
+<?php include_once '../index.php' ?>
+<?php include_once '../Customer/db_books.php' ?>
+<?php include_once '../Admin/db_users.php' ?>
+<?php session_start();
+$userid = $_SESSION["id"] ?? 0;
+$user = get_user($userid);
+if ($userid == 0) {
+  header("Location: signin.php");
+}
+
+$id = $_GET["id"] ?? 0;
+
+if ($id == 0) {
+    header("Location: profile.php");
+}
+else {
+    $book = get_book($id);
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,28 +44,28 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
-        <img src="../image/book4.jpg" alt="add-cart-photo" id="add-cart-photo" class="img-thumbnail" >
+        <img src="<?php echo $book["picture_path"]; ?>" alt="add-cart-photo" id="add-cart-photo" class="img-thumbnail" >
         </div>
         <div class="col-md-3" id="item-details">
         <table>
             <tr class="border-bottom">
-                <th><p><b>You are a Badass(r) By: Jen Sincero</b></p></th>
+                <th><p><b><?php echo $book["book_title"] ?></b></p></th>
             </tr>
             <tr>
-            <td><p><b>Price:</b> Php150.00</p></td>
+            <td><p><b>Price:</b> Php <?php echo number_format($book["price"], 2) ?></p></td>
             </tr>
             <tr>
-            <td><p><b>Status:</b> Slightly Used</p></td>
+            <td><p><b>Status:</b> <?php echo $book["status"]; ?></p></td>
             </tr>
             <tr>
-            <td><p><b>Description:</b> Book for those who wanted to be awesome</p></td>
+            <td><p><b>Description:</b> <?php echo $book["description"]; ?></p></td>
             </tr>
             <tr>
-            <td><p><b>Location:</b> Imus, Cavite</p></td>
+            <td><p><b>Location:</b> <?php echo $book["location"]; ?> </p></td>
             </tr>
-            <tr>
+            <!-- <tr>
             <td><p><b>Payment:</b>Meet-up</p></td>
-            </tr>
+            </tr> -->
         </table>
         <div class="col-md-0">
         <table class="second-table">

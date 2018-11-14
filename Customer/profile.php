@@ -87,7 +87,7 @@ $reserved_books = get_no_of_reserved_items($userid);
     <!-- /Second-->
     
     <!-- Third -->
-    <table style="position:relative;right:200px;">
+    <!-- <table style="position:relative;right:200px;">
       <tr>
         <th>Book Title</th>
         <th>No of Offers</th>
@@ -104,7 +104,7 @@ $reserved_books = get_no_of_reserved_items($userid);
         <td>Programming 3</td>
         <td>7</td>
       </tr>
-    </table>
+    </table> -->
     <!-- /Third-->
     </div>
     <!-- column 2 -->
@@ -119,7 +119,7 @@ $reserved_books = get_no_of_reserved_items($userid);
 						<tr>
 							<td><a href="#"><img src="<?php echo $b["picture_path"];  ?>" style="width:125px;height:175px;margin-bottom:10px;margin-top:10px;"></a></td>
 							<td>
-								<p>Title: <?php echo $b["book_title"] ?></p>
+								<p>Title: <a href="bookdetails.php?id=<?php echo $b["id"]; ?>"> <?php echo $b["book_title"]; ?> </a> </p>
 								<p>Status: <?php echo $b["status"] ?></p>
 								<p>Price: <?php echo $b["price"] ?></p>
 							</td>
