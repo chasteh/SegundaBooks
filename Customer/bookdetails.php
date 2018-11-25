@@ -32,8 +32,10 @@ else {
     <link ref="stylesheet" href="#.css">
     <link rel="stylesheet" href="styles/bookdetails.css" />
     <title>Segundabooks</title>
-</head>
+    <style>
 
+    </style>
+</head>
 <body>
 <div class="container-fluid">
 <?php include 'login_info.php' ?>
@@ -43,42 +45,66 @@ else {
 </div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6">
-        <img src="<?php echo $book["picture_path"]; ?>" alt="add-cart-photo" id="add-cart-photo" class="img-thumbnail" >
+        <div class="col-md-5">
+        <img src="<?php echo $book["picture_path"]; ?>" alt="add-cart-photo" id="add-cart-photo" class="img-thumbnail">
+        <div class="col-md-4">
         </div>
-        <div class="col-md-3" id="item-details">
-        <table>
-            <tr class="border-bottom">
-                <th><p><b><?php echo $book["book_title"] ?></b></p></th>
+        <div class="col-md-12">
+        <form action="browsecollection.php" method="POST">
+        <?php if(!in_array($book["id"], $_SESSION["cart"])): ?>
+            <button style="margin-left:230px;" type="submit" name="<?php echo $book["id"]; ?>" ><img src="image\addtocart.png" style="width:293px;height:85px;"alt="..."/></button>
+<?php endif; ?>
+        </form>
+        
+        </div>
+        </div>
+        <div class="col-md-5" >
+        <table style="table-layout: auto;width: 360px; height:300px;">
+            <tr>
+                <th><p style="text-align:center;"><b><?php echo $book["book_title"] ?></b></p></th> <!-- title of table -->
             </tr>
             <tr>
-            <td><p><b>Price:</b> Php <?php echo number_format($book["price"], 2) ?></p></td>
+            <td><p style="text-align:center;"><b>Price:</b> Php <?php echo number_format($book["price"], 2) ?></p></td>
             </tr>
             <tr>
-            <td><p><b>Status:</b> <?php echo $book["status"]; ?></p></td>
+            <td><p style="text-align:center;"><b>Status:</b> <?php echo $book["status"]; ?></p></td>
             </tr>
             <tr>
-            <td><p><b>Description:</b> <?php echo $book["description"]; ?></p></td>
+            <td><p style="text-align:center;"><b>Description:</b> <?php echo $book["description"]; ?></p></td>
             </tr>
             <tr>
-            <td><p><b>Location:</b> <?php echo $book["location"]; ?> </p></td>
+            <td><p style="text-align:center;"><b>Location:</b> <?php echo $book["location"]; ?> </p></td>
             </tr>
             <!-- <tr>
             <td><p><b>Payment:</b>Meet-up</p></td>
             </tr> -->
         </table>
         <div class="col-md-0">
-        <table class="second-table">
+        <table class="second-table" style="table-layout: auto;
+    width: 360px; 
+    height:230px;">
             <tr>
-                <th><p>Meet The Seller</p></th>
+                <th><p style="text-align:center;">Meet The Seller</p></th>
             </tr>
             <tr>
-    <td class="col-md-2"><img src="../image/book0.jpg" class="img-circle" alt="HelPic" width="50" height="50" id="profile"></td>
+           <td class="col-md-0">
+           
+           <img src="../image/book0.jpg" class="col-md-3" alt="HelPic" width="50" height="50" id="profile" style=" border-radius: 50%;">
+           <p class="col-md-8" style="color:#80ccff;">
+           <?php echo $user["full_name"] ?>
+           </p>
+           <p class="col-md-6">Joined 2 years ago.</p>
+           <p class="col-md-5" style="margin-left:90px;">Verified <img src="image/messenge.png" style="width:25px;height:25px;"></p>
+          
+            </td>
             </tr>
         </table>
-        </div></div>
-        
+        </div>
+        </div>
 </div>
 </div>  
+<div class="footer-copyright text-center py-3" style="margin-left:400px;">© 2018 Copyright:
+      <a href="index.php">SegundaBooks</a>
+    </div>
 </body>
 </html>
