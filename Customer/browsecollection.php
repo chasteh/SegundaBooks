@@ -1,4 +1,5 @@
 <?php include_once '../index.php' ?>
+<?php include_once '../Customer/db_books.php' ?>
 <?php include_once '../Admin/db_users.php' ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,12 +15,51 @@
 	<script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> </script>
 	<link rel="icon" href="image/icon.png">
     <title>SegundaBooks</title>
+    <style>
+        img{
+            height: 250px;
+            width: 250px;
+        }
+        table{
+            width:50%;
+        }
+        #title{
+            font-size:100px;
+			color: ;
+        }
+    </style>
 </head>
 <body>
 <?php
 	session_start();
+	add_to_cart();
+
 	if (!empty($_SESSION["authenticated"]) && $_SESSION["authenticated"] === TRUE) {
 		$user = get_user($_SESSION["id"] ?? 0);
+	}
+
+	if(!isset($_SESSION["cart"])){
+		$_SESSION["cart"] = array();
+	}
+
+	if (isset($_GET["search"]) && !empty($_GET["search"])) {
+		$books = search_books($_GET["search"]);
+	}
+	else {
+		$books = get_all_books();		
+	}
+
+	function add_to_cart(){
+		$books = get_all_books();
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			foreach($books as $book){
+				if(isset($_POST[$book["id"]]) && array_key_exists($book["id"], $_POST)){
+					if(!in_array($book["id"], $_SESSION["cart"])) {
+						array_push($_SESSION["cart"], $book["id"]);
+					}
+				}
+			}
+		}
 	}
 ?>
 <div class="container-fluid">
@@ -29,122 +69,57 @@
 <?php include 'nav_bar.php' ?>
 </div>
 <div class="search">
-	<b>Search</b>
-		<select>
-			<option>Fiction</option>
-			<option>Non-Fiction</option>
-			<option>History Books</option>
-			<option>Children's Books</option>
-			<option>Biographies</option>
-			<option>Arts and Entertainment</option>
-		</select>
-		<input type="search" name="search" class="searchbox"><button class="find">find</button>
+		<form action="browsecollection.php" method="GET" class="form-inline">
+			<div class="form-group">
+			<b>Search</b>
+				<input type="text" name="search" class="searchbox">
+				<button type="submit" class="find">Find</button>
+ 		 	</div>	
+		</form>
 </div>
 <div class="divider"></div>
 <div class="title">
-	<p>Best Selling Books</p>
+	<p>Books Collection</p>
 </div>
 <div class="divider"></div>
-
-<table>
-	<div class="table-responsive-sm">
-    <thead>
-        <tr>
-            <th rowspan="2"></th>
-            <th colspan="4">&nbsp;</th>
-        </tr>
-        <tr>
-            <th><img src="../image/book1.jpg"></th>
-            <th><img src="../image/book2.jpg"></th>
-            <th><img src="../image/book3.jpg"></th>
-            <th><img src="../image/book4.jpg"></th>
-			<th><img src="../image/book0.jpg"></th>
-			<th><img src="../image/book2.jpg"></th>
-        </tr>
-    </thead>
-    <tbody>
-			<tr class="table-title">
-				<td></td>
-				<td><b><a href="#">programming<a href="#"><b></td>
-			<td><b><a href="#">Program C#<a href="#"><b></td>
-			<td><b><a href="#">Game Programming<a href="#"><b></td>
-			<td><b><a href="#">C++ Subject<a href="#"><b></td>
-			<td><b><a href="#">Different Books<a href="#"><b></td>
-			<td><b><a href="#">Programming high-<b><br/>definition<a href="#"></td>
-         </tr>
-		 <tr class="information">
-            <td></td>
-            <td>Information</td>
-			<td>Program C#</td>
-			<td>Game Programming</td>
-			<td>C++ Subject</td>
-			<td>Different Books</td>
-			<td>Programming high-<br/>definition</td>
-         </tr>
-		 <tr class="price">
-			<td></td>
-			<td>$14.50</td>
-			<td>$12.50</td>
-			<td>$24.00</td>
-			<td>$23.50</td>
-			<td>$42.50</td>
-			<td>$12.00</td>
-		 </tr>
-    </tbody>
-	</div>
-</table>
-<table>
-	<div class="container-fluid">
-    <thead>
-        <tr>
-            <th rowspan="2"></th>
-            <th colspan="4">&nbsp;</th>
-        </tr>
-        <tr>
-            <th><img src="../image/book1.jpg"></th>
-            <th><img src="../image/book2.jpg"></th>
-            <th><img src="../image/book3.jpg"></th>
-            <th><img src="../image/book4.jpg"></th>
-			<th><img src="../image/book0.jpg"></th>
-			<th><img src="../image/book2.jpg"></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="table-title">
-            <td></td>
-            <td><a href="#"><b>programming<b><a href="#"></td>
-			<td><a href="#"><b>Program C#<b><a href="#"></td>
-			<td><a href="#"><b>Game Programming<b><a href="#"></td>
-			<td><a href="#"><b>C++ Subject<b><a href="#"></td>
-			<td><a href="#"><b>Different Books<b><a href="#"></td>
-			<td><a href="#"><b>Programming high-<b><a href="#"><br/>definition</td>
-         </tr>
-		 <tr class="information">
-            <td></td>
-            <td>Information</td>
-			<td>Program C#</td>
-			<td>Game Programming</td>
-			<td>C++ Subject</td>
-			<td>Different Books</td>
-			<td>Programming high-<br/>definition</td>
-         </tr>
-		 <tr class="price">
-			<td></td>
-			<td>$23.50</td>
-			<td>$42.50</td>
-			<td>$12.00</td>
-			<td>$14.50</td>
-			<td>$12.50</td>
-			<td>$24.00</td>
-			
-		 </tr>
-    </tbody>
-	</div>
-</table>
-
-
-    <div class="footer-copyright text-center py-3" id="footer">© 2018 Copyright:
-      <a href="index.php"> SegundaBooks</a>
+<div class="container">
+    <?php
+    //Columns must be a factor of 12 (1,2,3,4,6,12)
+    $numOfCols = 4;
+    $rowCount = 0;
+    $bootstrapColWidth = 12 / $numOfCols;
+    ?>
+    <div class="row">
+    <?php
+    foreach ($books as $book){
+    ?>  
+            <div class="col-md-<?php echo $bootstrapColWidth; ?>">
+		<a href="bookdetails.php?id=<?php echo $book["id"]; ?>">
+            <form action="browsecollection.php" method="POST">
+            <div class="card" style="width:250px">
+                <img class="card-img-top" src="<?php echo $book["picture_path"]; ?>" alt="Book image">
+                <div class="card-body"> 
+                    <h4 class="card-title">Title: <?php echo $book["book_title"]; ?></h4>
+                    <p class="card-text">Price: &#8369;<?php echo $book["price"]; ?> <br> Status: <?php echo $book["status"] ?></p>
+				<?php if(in_array($book["id"], $_SESSION["cart"])): ?>
+					<button type="submit" class="btn btn-primary disabled" disabled><i class="fas fa-cart-arrow-down"></i>Added</button>
+				<?php else: ?>
+					<button type="submit" class="btn btn-primary" name="<?php echo $book["id"]; ?>">Add to Cart</button>					
+				<?php endif; ?>
+                </div>
+            </div>
+        </form>
+		</a>
+            </div>
+    <?php
+        $rowCount++;
+        if($rowCount % $numOfCols == 0) echo '</div><div class="row">';
+    }
+    ?>
     </div>
-</body>
-</html>
+</div>
+    <div class="footer-copyright text-center py-3" id="footer">© 2018 Copyright:
+      <a href="index.php">SegundaBooks</a>
+    </div>
+<</body>
+</html> 
