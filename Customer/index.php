@@ -88,14 +88,14 @@
 	<div class="divider"></div>
 	<div class="container">
 		<p class="my-2 text-center text-lg-left" id="trending">Trending in books</p>
-		<div class="row text-center text-lg-left">
-			<div class="col-lg-4 col-md-4 col-xs-6">
+		<div class="row text-center">
+			<div class="col-md-4">
 				<a href="#" class="d-block mb-1 h-50">
 					<img class="img-fluid img-thumbnail" src="../image/book2.jpg" alt="">
 				</a>
 			</div>
 
-			<div class="col-lg-4 col-md-4 col-xs-6" id="six-books">
+			<div class="col-md-4" id="six-books">
 				<a href="#" class="d-block mb-1 h-50">
 					<img src="../image/book1.jpg" width="80" height="100" id="second" />
 					<img src="../image/book2.jpg" width="80" height="100" id="third" />
@@ -107,10 +107,8 @@
 			</div>
 
 			<p id="categories">Book Categories</p>
-			<div class="col-lg-1 col-md-4 col-xs-6">
-				<form style="width:10px;">
-					<div>
-						<input type="button" value="Fiction" id="fiction"><br />
+			<div class="col-md-0">
+			<input type="button" value="Fiction" id="fiction"><br />
 						<input type="button" value="Non-Fiction" id="non-fiction">
 						<br />
 						<input type="button" value="History Books" id="history">
@@ -121,7 +119,12 @@
 						<br />
 						<input type="button" value="Arts and Entertainment" id="arts">
 						<br />
-					</div>
-				</form>
+			</div>
+			
+
+		 <div class="footer-copyright text-center py-3" style="margin-left:400px;">© 2018 Copyright:
+      <a href="index.php">SegundaBooks</a>
+    </div>
+  
 </body>
 </html>
