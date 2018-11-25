@@ -144,4 +144,90 @@ function get_books_by_user($userid){
 
     return $books;
 }
+
+
+function get_all_books(){
+    $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) 
+    or die('Error Connecting to MYSQL' . mysqli_connect_error());
+    $query = "SELECT bt.id, picture_path, book_title, 
+        status, price ,description, location, c.category_name AS category_name, 
+        user_id, is_sold, is_reserved, 
+        u.name AS full_name,
+        u.contact_number AS contact_number
+        FROM book_details bt 
+        LEFT JOIN category c ON c.id = bt.category_id
+        JOIN users u ON bt.user_id = u.id";
+
+    $stmt = $mysqli->prepare($query) or die($mysqli->error);
+
+    if ($stmt->execute()) {
+
+    $result = $stmt->get_result();
+
+    $books = array_fill(0, $result->num_rows, array_fill(0,10, ''));
+
+    for ($i=0; $i < $result->num_rows; $i++) { 
+        $row = $result->fetch_assoc();
+        $books[$i] = array(
+            "id" => $row["id"],
+            "picture_path" => $row["picture_path"],
+            "book_title" => $row["book_title"],
+            "status" => $row["status"],
+            "price" => $row["price"],
+            "description" => $row["description"],
+            "location" => $row["location"],
+            "category_name" => $row["category_name"],
+            "user_id" => $row["user_id"],
+            "is_sold" => $row["is_sold"] == 0 ? "Not Sold" : "Sold",
+            "is_reserved" => $row["is_reserved"] == 0 ? "Not Reserved" : "Reserved",
+        );
+    }
+}     
+    return $books;
+}
+
+function search_books($search){
+    $search = "%" .$search. "%";
+
+    $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) 
+    or die('Error Connecting to MYSQL' . mysqli_connect_error());
+    $query = "SELECT bt.id, picture_path, book_title, 
+        status, price ,description, location, c.category_name AS category_name, 
+        user_id, is_sold, is_reserved, 
+        u.name AS full_name,
+        u.contact_number AS contact_number
+        FROM book_details bt 
+        LEFT JOIN category c ON c.id = bt.category_id
+        JOIN users u ON bt.user_id = u.id
+        WHERE book_title LIKE ?";
+
+    $stmt = $mysqli->prepare($query) or die($mysqli->error);
+    $stmt->bind_param("s", $search);
+
+    if ($stmt->execute()) {
+
+    $result = $stmt->get_result();
+
+    $books = array_fill(0, $result->num_rows, array_fill(0,10, ''));
+
+    for ($i=0; $i < $result->num_rows; $i++) { 
+        $row = $result->fetch_assoc();
+        $books[$i] = array(
+            "id" => $row["id"],
+            "picture_path" => $row["picture_path"],
+            "book_title" => $row["book_title"],
+            "status" => $row["status"],
+            "price" => $row["price"],
+            "description" => $row["description"],
+            "location" => $row["location"],
+            "category_name" => $row["category_name"],
+            "user_id" => $row["user_id"],
+            "is_sold" => $row["is_sold"] == 0 ? "Not Sold" : "Sold",
+            "is_reserved" => $row["is_reserved"] == 0 ? "Not Reserved" : "Reserved",
+        );
+    }
+}     
+    return $books;
+}
+
 ?>
