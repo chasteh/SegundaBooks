@@ -49,6 +49,11 @@ if ($userid == 0) {
 		font-weight:normal;
 		margin-left:20px;
 	}
+
+  img{
+    height: 250px;
+    width: 250px;
+  }
 	</style>
 </head>
 
@@ -84,49 +89,40 @@ $reserved_books = get_no_of_reserved_items($userid);
    <label style="color:black;margin-right:5px;">No. of Sold Items:</label><label style="color:black;"> <?php echo $sold_books; ?> </label>
    <label style="color:black;">No. of Reserved Items: </label><label style="color:black;"> <?php echo $reserved_books; ?> </label>
    </div>
-    <!-- /Second-->
-    
-    <!-- Third -->
-    <!-- <table style="position:relative;right:200px;">
-      <tr>
-        <th>Book Title</th>
-        <th>No of Offers</th>
-      </tr>
-      <tr>
-        <td>Programming 1</td>
-        <td>5</td>
-      </tr>
-      <tr>
-        <td>Programming 2</td>
-        <td>11</td>
-      </tr>
-      <tr>
-        <td>Programming 3</td>
-        <td>7</td>
-      </tr>
-    </table> -->
-    <!-- /Third-->
     </div>
     <!-- column 2 -->
     <div class="col-sm-9">
-    <h3>Book List</h3>
-				<div style="border-bottom:1px solid lightgray;"></div>
-				<div style="margin-right:8%;margin-top:2%;margin-bottom:2%;"></div>
-
-				<table style="width:100%;" align="right">
-					<tbody>
-				<?php foreach($books as $b): ?>
-						<tr>
-							<td><a href="#"><img src="<?php echo $b["picture_path"];  ?>" style="width:125px;height:175px;margin-bottom:10px;margin-top:10px;"></a></td>
-							<td>
-								<p>Title: <a href="bookdetails.php?id=<?php echo $b["id"]; ?>"> <?php echo $b["book_title"]; ?> </a> </p>
-								<p>Status: <?php echo $b["status"] ?></p>
-								<p>Price: <?php echo $b["price"] ?></p>
-							</td>
-						</tr>
-				<?php endforeach; ?>
-					</tbody>
-				</table>				
+    <div class="container">
+    <h2>Book List</h2>
+    <?php
+    //Columns must be a factor of 12 (1,2,3,4,6,12)
+    $numOfCols = 3;
+    $rowCount = 0;
+    $bootstrapColWidth = 12 / $numOfCols;
+    ?>
+    <div class="row">
+    <?php
+    foreach ($books as $b){
+    ?>  
+            <div class="col-md-<?php echo $bootstrapColWidth; ?>">
+		<a href="bookdetails.php?id=<?php echo $b["id"]; ?>">
+            <div class="card" style="width:200px">
+                <img class="card-img-top" src="<?php echo $b["picture_path"]; ?>" alt="Book image">
+                <div class="card-body"> 
+                    <h4 class="card-title">Title: <?php echo $b["book_title"]; ?></h4>
+                    <p class="card-text">Price: &#8369;<?php echo $b["price"]; ?> <br> Status: <?php echo $b["status"] ?></p>
+					          <a href="bookdetails.php?id=<?php echo $b["id"]; ?>" class="btn btn-primary">See Book Details</a>					
+                </div>
+            </div>
+		</a>
+            </div>
+    <?php
+        $rowCount++;
+        if($rowCount % $numOfCols == 0) echo '</div><div class="row">';
+    }
+    ?>
+    </div>
+</div>	
 			
 			</div>	
         </div>		
