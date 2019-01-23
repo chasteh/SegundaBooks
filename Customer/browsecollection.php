@@ -72,7 +72,7 @@
 		<form action="browsecollection.php" method="GET" class="form-inline">
 			<div class="form-group">
 			<b>Search</b>
-				<input type="text" name="search" class="searchbox">
+				<input type="text" class="form-control col-2" style="width: 20em" name="search">
 				<button type="submit" class="find">Find</button>
  		 	</div>	
 		</form>
